@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="../assets/css/slick-theme.css"/>
 	<link rel="stylesheet" href="../assets/css/nice-select.css">
 	<link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -61,11 +62,19 @@
                                 </ul>
                             </div>
                                 
-                            <div class="header-info-right">
-                                <ul>    
-                                    <li><a href="/auth/google"><i class="fa fa-user"></i>Login</a></li>
-                                </ul>
-                            </div>
+                            <div class="header-info-right ">
+                                    <% if (!isLogged) { %>
+                                    <ul>    
+                                        <li><a href="/auth/google"><i class="fa fa-user"></i>Login</a></li>
+                                    </ul>
+                                    <% } else { %>
+                                    <ul>    
+                                        <li>
+                                            <a href="/logout">&nbsp;<%=user.name %>&nbsp;<i class="fa fa-md fa-sign-out"></i></a>
+                                        </li>
+                                    </ul>
+                                    <%}%>
+                                </div>
                         </div>
                     </div>
                 </div>

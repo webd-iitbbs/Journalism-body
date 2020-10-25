@@ -134,7 +134,7 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     
   app.get('/articles/:id', (req,res)=>{
     db.collection('article').find({_id:req.params.id.toString()}).toArray()
-    .then(result=>res.render('articles',{article:result, user: req.user, isLoggedIn: req.isAuthenticated() }))
+    .then(result=>res.render('articles',{article:result, user: req.user, isLogged : req.isAuthenticated() }))
     .catch(error=>console.log(error));
   })
 
@@ -153,9 +153,15 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
   );
   
   app.get('/logout', (req, res) => {
-    req.session = null;
-    req.logout();
-    res.redirect('/');
+    if (req.session) {
+    req.session.destroy(function (err) {
+      if (err) {
+        return next(err);
+      } else {
+        return res.redirect('/');
+      }
+    });
+  }
   })
 
   // //to add an article
