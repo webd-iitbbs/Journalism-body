@@ -120,49 +120,6 @@
     </header>
 
 <main>
-  <!--? Treanding Start -->
-  <div class="home-blog-area section-padding30 container">
-      <div class="container">
-          <!-- Section Tittle -->
-          <div class="row">
-              <div class="col-lg-12">
-                  <div class="section-tittle text-center mb-50">
-                      <h2>Trending Articles</h2>
-                  </div>
-              </div>
-          </div>
-          <div class="row slider">
-          <% for(var j=0;j<article.length;j++){
-              if(article[j].trending) {%>
-          
-              <div class="col-xl-4 col-lg-4 col-md-4 ">
-                  <div class="home-blog-single mb-30 ">
-                      <div class="blog-img-cap colo">
-                          <div class="blog-img">
-                              <img src="assets/img/gallery/<%=article[j].photo%>.jpg" alt="">
-                              <!-- Blog date -->
-                              <div class="blog-date text-center">
-                              <% var str = article[j].date;
-                                var pieces = str.split(" "); %>
-                                <span><%= pieces[0].slice(0,2) %></span>
-                                <p><%= pieces[1] %></p>
-                              </div>
-                          </div>
-                          <div class="blog-cap ">
-                              <p>Ritik Roy</p>
-                              <h3><a href="articles/<%=j%>"><%=article[j].name%></a></h3>
-                              <a href="articles/<%=j%>" class="more-btn">Read more »</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              
-                <%}}%>
-            </div>
-        </div>
-    </div>
-  <!-- Treanding End -->
-
  <!--================Blog Area =================-->
         <div class="row">
             <div class="col-lg-12">
@@ -179,7 +136,7 @@
                            <% for(var i=0;i<article.length;i++){%>
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="assets/img/gallery/<%= article[i].photo %>.jpg" alt="">
+                                    <img class="card-img rounded-0" src="assets/img/gallery/<%= i+1 %>.jpg" alt="">
                                     <a href="#" class="blog_item_date">
                                         <% var str = article[i].date;
                                         var pieces = str.split(" "); %>
