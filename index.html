@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        howdy ninjas
+    </h1>
+    <form action="/articles" method="POST" >
+        <input type="text" placeholder="id" name="id"/>
+        <input type="text" placeholder="fullname" name="name"/>
+        <input type="text" placeholder="category" name="category"/>
+   
+    <textarea name="content" id="" cols="30" rows="10" placeholder="html_content"></textarea>
+    <input type="text" placeholder="author_id" name="author_id"/>
+    <label for="check">Trending or not</label>
+    <input type="checkbox" placeholder="trending" name="trending" checked id="check"/>
+    <textarea name="pure_text" id="" cols="30" rows="10" placeholder="pure_text"></textarea>
+    <input type="hidden" name="date" id="todayDate"/>
+    <input type="text" name="photo"  placeholder="photo_id" id="">
+<script type="text/javascript">
+function getDate()
+{
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm}
+    today = dd+"-"+mm+"-"+yyyy;
+
+    document.getElementById("todayDate").value = today;
+}
+
+//call getDate() when loading the page
+
+</script> 
+    <button type="submit" onclick="getDate()">Submit</button>
+</form>
+</body>
+</html>

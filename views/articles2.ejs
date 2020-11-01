@@ -2,8 +2,8 @@
 <html class="no-js" lang="zxx">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge"> 
-    <title>IIT Bhubaneswar</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> <%= article[0].name %> | IIT Bhubaneswar </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/iitbbslogo.png">
@@ -22,156 +22,10 @@
 	<link rel="stylesheet" href="../assets/css/nice-select.css">
 	<link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   
 </head>
 
 <body>
-    <style>
-        body {
-      font-family: "Roboto",sans-serif;
-      font-weight: normal;
-      font-style: normal;
-  }
-  .section-padding {
-      padding-top: 120px;
-      padding-bottom: 120px;
-  }
-  .lat {
-      padding-top: 30px;
-  }
-  .container {
-      width: 100%;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-right: auto;
-      margin-left: auto;
-  }
-  .row {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      margin-right: -15px;
-      margin-left: -15px;
-  }
-  .quote-wrapper {
-      background: rgba(130,139,178,0.1);
-      padding: 15px;
-      line-height: 1.733;
-      color: #888888;
-      font-style: italic;
-      margin-top: 25px;
-      margin-bottom: 25px;
-  } 
-  .single-post-area .quotes {
-      background: #fff;
-      padding: 15px 15px 15px 20px;
-      border-left: 2px solid;
-  }
-  p {
-      font-family: "Roboto",sans-serif;
-      color: #10285d;
-      font-size: 16px;
-      line-height: 30px;
-      margin-bottom: 15px;
-      font-weight: normal;
-  } 
-  
-    
-  ul {
-      display: block;
-      list-style-type: disc;
-      margin-block-start: 1em;
-      margin-block-end: 1em;
-      margin-inline-start: 0px;
-      margin-inline-end: 0px;
-      padding-inline-start: 40px;
-  }
-  
-  img {
-     
-      vertical-align: middle;
-      border-style: none;
-  }
-  .single-post-area .blog_details {
-      padding-top: 26px;
-  }
-  .single-post-area .blog_details {
-      box-shadow: none;
-      padding: 0;
-  }
-  .blog_details h2 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 8px;
-  }
-  .blog-info-link li {
-      float: left;
-      font-size: 14px;
-  }
-  li {
-      list-style: none;
-  }
-  .blog-info-link li a {
-      color: #999999;
-  }
-  .blog_area a {
-      color: "Sen",sans-serif !important;
-      text-decoration: none;
-      transition: .4s;
-  }
-  .blog_details a {
-      color: #242b5e;
-  }
-  .blog-info-link li i, .blog-info-link li span {
-      font-size: 13px;
-      margin-right: 5px;
-  }
-  
-  .blog-info-link li::after {
-      content: "|";
-      padding-left: 10px;
-      padding-right: 10px;
-  }
-  .content-1 img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      
-      
-  }
-  span{
-      font-weight: 400;
-      font-size: x-large;
-  }
-  .impact img{
-      width: 100%;
-      height:400px;
-      object-fit: cover;
-  }
-   img{
-      height: 50px;
-  }
-  .feature-img img{
-      width: 100%;
-      height:100%;
-      object-fit: cover;
-  }
-  .content-2{
-      background: rgba(130,139,178,0.1);
-      padding: 15px;
-      line-height: 1.733;
-      color: #888888;
-      font-style: italic;
-      margin-top: 25px;
-      margin-bottom: 25px;
-  }
-  .single-post-area .content-21 {
-      background: #fff;
-      padding: 15px 15px 15px 20px;
-      border-left: 2px solid;
-  }
-     </style>
+
     <!--? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -281,22 +135,92 @@
       </div>
       <!-- Hero End -->
       <!--================Blog Area =================-->
-   
-      
       <section class="blog_area single-post-area section-padding lat">
-        
-            <%- article[0].content %>
-        
- 
-
-     
-
-
-    
-     
-    
-     <!--================Comments area =================-->
-                     
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 posts-list">
+                  <div class="single-post">
+                     <div class="feature-img">
+                        <img class="img-fluid" src="../assets/img/gallery/<%= article[0].photo %>.jpg" alt="">
+                     </div>
+                     <div class="blog_details">
+                        <h2 style="color: #2d2d2d;"><%= article[0].name %>
+                        </h2>
+                        <ul class="blog-info-link mt-3 mb-4">
+                           <li><a href="#"><i class="fa fa-user"></i> Soumyajith</a></li>
+                           <li><a href="#"><i class="fa fa-info"></i> Alumni</a></li>
+                        </ul>
+                        <p class="excert">
+                          <%= article[0].content %>
+                        </p>
+                        
+                     </div>
+                  </div>
+                  <div class="navigation-top">
+                     <div class="d-sm-flex justify-content-between text-center">
+                        <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> 5
+                           people like this</p>
+                        <div class="col-sm-4 text-center my-2 my-sm-0">
+                           <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 1 Comments</p>
+                        </div>
+                     </div>
+                     <div class="navigation-area">
+                        <div class="row">
+                           <div
+                              class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                              <div class="thumb">
+                                 <a href="#">
+                                    <img class="img-fluid" src="../assets/img/gallery/1.jpeg" width="80" height="100" alt="">
+                                 </a>
+                              </div>
+                              <div class="arrow">
+                                 <a href="onlineinternships.html">
+                                    <span class="lnr text-white ti-arrow-left"></span>
+                                 </a>
+                              </div>
+                              <div class="detials">
+                                 <p>Prev Post</p>
+                                 <a href="onlineinternships.html">
+                                    <h4 style="color: #2d2d2d;">Online Internships</h4>
+                                 </a>
+                              </div>
+                           </div>
+                           <div
+                              class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                              <div class="detials">
+                                 <p>Next Post</p>
+                                 <a href="lifebeyondclass.html">
+                                    <h4 style="color: #2d2d2d;">Life beyond Class</h4>
+                                 </a>
+                              </div>
+                              <div class="arrow">
+                                 <a href="lifebeyondclass.html">
+                                    <span class="lnr text-white ti-arrow-right"></span>
+                                 </a>
+                              </div>
+                              <div class="thumb">
+                                 <a href="#">
+                                    <img class="img-fluid" src="../assets/img/gallery/2.jpeg" width="80" height="100" alt="">
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <%for(var g=0;g<author.length;g++){%>
+                    <%if(author[g].id==article[0].author_id){ %>
+                    <div class="blog-author">
+                      <div class="media align-items-center">
+                         <img src="../assets/img/comment/download.jpg" alt="">
+                         <div class="media-body">
+                            <a href="#">
+                               <h4><%= author[g].name %></h4>
+                            </a>
+                         </div>
+                      </div>
+                   </div>
+                  <%}%>
+                      <% } %>
                   <div class="comments-area">
                      <h4>Comments</h4>
                      <div class="comment-list">
@@ -442,7 +366,7 @@ function getDate()
                </div>
             </div>
          </div>
-      
+      </section>
       <!--================ Blog Area end =================-->
    </main>
    <footer>

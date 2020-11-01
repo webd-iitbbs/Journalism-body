@@ -26,7 +26,7 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     const db = client.db('ja-articles');
     const articlesCollection = db.collection('article');
     const authorCollection = db.collection('author');
-
+    const commentCollection = db.collection('comment')
   app.listen(3000, ()=>{
         console.log("server's up")
   }); 
@@ -71,11 +71,13 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
   ));  
 
   app.get('/', (req,res)=>{
+    db.collection('author').find().toArray() 
+    .then(result3=>{
       db.collection('article').find().toArray()
-    .then(results => {
-      res.render('index',{article:results, user: req.user, isLogged: req.isAuthenticated() })
-    })
-    .catch(error => console.error(error))  
+      .then(result2=>{res.render('index',{article:result2, isLogged : req.isAuthenticated(), author:result3})})
+      .catch(error=>console.log(error+"1"));
+    }).catch(error=>console.log(error+"2"));
+   
   });
 
   app.get('/studentlife', (req,res)=>{
@@ -131,11 +133,24 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     })
     .catch(error => console.error(error))  
   });  
-    
+ 
   app.get('/articles/:id', (req,res)=>{
-    db.collection('article').find({_id:req.params.id.toString()}).toArray()
-    .then(result=>res.render('articles',{article:result, user: req.user, isLogged : req.isAuthenticated() }))
-    .catch(error=>console.log(error));
+   
+    db.collection('comment').find().toArray()
+    .then(result1=> {db.collection('author').find().toArray() 
+                    .then(result3=>{
+                      db.collection('article').find({id:req.params.id.toString()}).toArray()
+                      .then(result2=>{res.render('articles',{article:result2, user: req.user, isLogged : req.isAuthenticated(), id:req.params.id , comment:result1 , author:result3});console.log(result1)})
+                      .catch(error=>console.log(error+"1"));
+                    }).catch(error=>console.log(error+"2"));
+
+    }
+    )
+    .catch(error=>console.log(error+"3"));
+    
+    
+    
+ 
   })
 
   app.get('/auth/google', 
@@ -165,14 +180,14 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
   })
 
   // //to add an article
-  // app.get('/articles',(req,res)=>{
-  //   //     db.collection('article').find().toArray()
-  //   // .then(results => {
-  //     //res.render('index')
-  //     res.sendFile(__dirname + '/index.html');
-  //     //})
-  //   //.catch(error => console.error(error))
-  // });
+  app.get('/articles',(req,res)=>{
+    //     db.collection('article').find().toArray()
+    // .then(results => {
+      //res.render('index')
+      res.sendFile(__dirname + '/index.html');
+      //})
+    //.catch(error => console.error(error))
+  });
 
   // //to add an author
   // app.get('/authors',(req,res)=>{
@@ -184,19 +199,26 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
   //   //.catch(error => console.error(error))
   // });
 
-  // app.post('/articles', (req,res)=>{ 
-  //     articlesCollection.insertOne(req.body)
-  //         .then(result=>res.redirect('/'))
-  //         .catch(error=>console.log(error)); 
-  // })
+  app.post('/articles', (req,res)=>{ 
+      articlesCollection.insertOne(req.body)
+          .then(result=>res.redirect('/'))
+          .catch(error=>console.log(error)); 
+  })
   // app.post('/authors', (req,res)=>{ 
   //   authorCollection.insertOne(req.body)
   //       .then(result=>res.redirect('/'))
   //       .catch(error=>console.log(error));
   // });
 
-    
-    
+    app.post('/comments/:id',(req,res)=>{
+      commentCollection.insertOne({comment: req.body.comment,_id: req.body._id, name:req.user.name, article_id:req.params.id, date:req.body.startdate, photo:req.user.photo })
+        .then(result=>{console.log(req.user);res.redirect('/articles/'+req.params.id)})
+        .catch(error=>console.log(error));
+
+    })
+    app.get('/author/:id',(req,res)=>{
+      res.render('author.ejs');
+    })
 
   })
   .catch(error => console.error(error));
