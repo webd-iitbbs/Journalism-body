@@ -120,8 +120,7 @@
     </header>
 
 <main>
-  <!--? Treanding Start -->
-  <div class="home-blog-area section-padding30 container">
+<div class="home-blog-area section-padding30 container">
       <div class="container">
           <!-- Section Tittle -->
           <div class="row">
@@ -135,7 +134,7 @@
           <% for(var j=0;j<article.length;j++){
               if(article[j].trending=="on") {%>
           
-              <div class="col-xl-4 col-lg-4 col-md-4 ">
+              <div class="col-md-4 ">
                   <div class="home-blog-single mb-30 ">
                       <div class="blog-img-cap colo">
                           <div class="blog-img">
@@ -152,7 +151,7 @@
                             <% for(var k=0;k<author.length;k++)
                               if(article[j].author_id==author[k].id) { %>
                                 <p><%= author[k].name %></p>
-                              <% } %>
+                            <% } %>
                               <h3><a href="articles/<%=j%>"><%=article[j].name%></a></h3>
                               <a href="articles/<%=j%>" class="more-btn">Read more »</a>
                           </div>
@@ -164,7 +163,6 @@
             </div>
         </div>
     </div>
-  <!-- Trending End -->
 
  <!--================Blog Area =================-->
         <div class="row">

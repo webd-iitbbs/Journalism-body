@@ -27,7 +27,7 @@
 
 <body>
     <style>
-        body {
+   body {
       font-family: "Roboto",sans-serif;
       font-weight: normal;
       font-style: normal;
@@ -67,27 +67,7 @@
       background: #fff;
       padding: 15px 15px 15px 20px;
       border-left: 2px solid;
-  }
-  p {
-      font-family: "Roboto",sans-serif;
-      color: #10285d;
-      font-size: 16px;
-      line-height: 30px;
-      margin-bottom: 15px;
-      font-weight: normal;
   } 
-  
-    
-  ul {
-      display: block;
-      list-style-type: disc;
-      margin-block-start: 1em;
-      margin-block-end: 1em;
-      margin-inline-start: 0px;
-      margin-inline-end: 0px;
-      padding-inline-start: 40px;
-  }
-  
   img {
      
       vertical-align: middle;
@@ -140,18 +120,13 @@
       
       
   }
-  span{
-      font-weight: 400;
-      font-size: x-large;
-  }
+  
   .impact img{
       width: 100%;
       height:400px;
       object-fit: cover;
   }
-   img{
-      height: 50px;
-  }
+  
   .feature-img img{
       width: 100%;
       height:100%;
@@ -284,6 +259,9 @@
    
       
       <section class="blog_area single-post-area section-padding lat">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 post-list">
         
             <%- article[0].content %>
         
@@ -306,7 +284,7 @@
                                 <div class="single-comment justify-content-between d-flex">
                                     <div class="user justify-content-between d-flex">
                                        <div class="thumb">
-                                          <img src=<%= comment[i].photo %> alt="">
+                                          <img src='<%= comment[i].photo %>' alt="">
                                        </div>
                                        <div class="desc">
                                           <p class="comment">
@@ -363,10 +341,11 @@ function getDate()
                      </form>
                   </div>
                </div>
-               <div class="col-lg-4">
-                  <div class="blog_right_sidebar">
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
                      
-                     <aside class="single_sidebar_widget post_category_widget">
+                    <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
                         <ul class="list cat-list">
                            <li>
@@ -400,9 +379,9 @@ function getDate()
                               </a>
                            </li>
                         </ul>
-                     </aside>
+                    </aside>
 
-                     <aside class="single_sidebar_widget popular_post_widget">
+                    <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
                         <div class="media post_item">
                             <img src="../assets/img/gallery/1.jpeg" width="60px" height="50px" alt="post">
@@ -438,10 +417,11 @@ function getDate()
                         <h4 class="widget_title" style="color: #2d2d2d;">Instagram Feeds</h4>
                         
                     </aside>
-                  </div>
-               </div>
-            </div>
-         </div>
+                </div>
+             </div>
+          </div>
+        </div>
+    </section>
       
       <!--================ Blog Area end =================-->
    </main>
