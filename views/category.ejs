@@ -96,7 +96,7 @@
                                     <ul id="navigation">                                                                                          
                                         <li><a href="/">Home</a></li>
                                         <li><a href="/studentlife">Student Life</a></li>
-                                        <li><a href="/careers">Careers</a></li>
+                                        <li><a href="/career">Career</a></li>
                                         <li><a href="/alumni">Alumni</a></li>    
                                         <li><a href="/scitech">SciTech</a></li>
                                         <li><a href="/cult">Cult</a></li>
@@ -129,7 +129,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="section-tittle text-center mb-50">
-                                    <h2 class="lathed">Latest Articles</h2>
+                                    <h2 class="lathed"><%= cat %></h2>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +137,7 @@
                            <% for(var i=0;i<article.length;i++){%>
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="assets/img/gallery/<%= i+1 %>.jpg" alt="">
+                                    <img class="card-img rounded-0" src="assets/img/gallery/<%= article[i].photo %>.jpg" alt="">
                                     <a href="#" class="blog_item_date">
                                         <% var str = article[i].date;
                                         var pieces = str.split(" "); %>
@@ -149,7 +149,7 @@
                                     <a class="d-inline-block" href="articles/<%=i%>">
                                         <h2 class="blog-head" style="color: #2d2d2d;"><%= article[i].name %></h2>
                                     </a>
-                                    <p><%= article[i].content.split(" ").slice(0,50).join(" ")%> <span>...</span></p> 
+                                    <p><%= article[i].pure_text.split(" ").slice(0,50).join(" ")%> <span>...</span></p> 
                                         
                                         <a href="articles/<%=i%>" class="more-btn">Read more »</a>
                                 </div>
