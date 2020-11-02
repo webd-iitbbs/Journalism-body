@@ -74,7 +74,11 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     db.collection('author').find().toArray() 
     .then(result3=>{
       db.collection('article').find().toArray()
+<<<<<<< HEAD
       .then(result2=>{res.render('index',{article:result2, isLogged : req.isAuthenticated(), author:result3,user: req.user})})
+=======
+      .then(result2=>{res.render('index',{article:result2, user: req.user, isLogged : req.isAuthenticated(), author:result3})})
+>>>>>>> 56652e24ac7c9726e255c638a64ae645bd181be4
       .catch(error=>console.log(error+"1"));
     }).catch(error=>console.log(error+"2"));
    
@@ -217,7 +221,7 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
 
     })
     app.get('/author/:id',(req,res)=>{
-      res.render('author.ejs');
+      res.render('author.ejs',{user: req.user, isLogged: req.isAuthenticated() });
     })
 
   })
