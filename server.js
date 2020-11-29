@@ -243,3 +243,5 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
 
   })
   .catch(error => console.error(error));
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
