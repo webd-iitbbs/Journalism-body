@@ -16,7 +16,9 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.listen(3000);
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-articles?retryWrites=true&w=majority'
 ,{
