@@ -3,7 +3,7 @@ const app = express();
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient 
 const passport = require('passport');
-const session = require('express-session');
+const session = require('cookie-session');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 app.set('view engine', 'ejs')
