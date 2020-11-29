@@ -74,79 +74,93 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     db.collection('author').find().toArray() 
     .then(result3=>{
       db.collection('article').find().toArray()
-<<<<<<< HEAD
-      .then(result2=>{res.render('index',{article:result2, isLogged : req.isAuthenticated(), author:result3,user: req.user})})
-=======
-      .then(result2=>{res.render('index',{article:result2, user: req.user, isLogged : req.isAuthenticated(), author:result3})})
->>>>>>> 56652e24ac7c9726e255c638a64ae645bd181be4
+      .then(result2=>{res.render('stanford',{article:result2, author:result3, user: req.user, isLogged : req.isAuthenticated()})})
       .catch(error=>console.log(error+"1"));
     }).catch(error=>console.log(error+"2"));
    
   });
 
   app.get('/studentlife', (req,res)=>{
-    db.collection('article').find({ category: "Studentlife" }).toArray()
+    db.collection('article').find().toArray()
     .then(results => {
-      console.log(req.user)
-      res.render('category',{article:results, user: req.user, isLogged: req.isAuthenticated(), cat:"Student Life"})
+      db.collection('author').find().toArray() 
+      .then(result2=>{
+        res.render('category',{article:results, cat:"Student Life", author:result2, query : "studentlife", user: req.user, isLogged: req.isAuthenticated()})
+      })
     })
     .catch(error => console.error(error))  
   });
 
   app.get('/career', (req,res)=>{
-    db.collection('article').find({ category: "Career" }).toArray()
+    db.collection('article').find().toArray()
     .then(results => {
-      console.log(req.user)
-      res.render('category',{article:results, user: req.user, isLogged: req.isAuthenticated(), cat:"Career" })
+      db.collection('author').find().toArray() 
+      .then(result2=>{
+        res.render('category',{article:results, cat:"Career", author:result2, query : "career", user: req.user, isLogged: req.isAuthenticated()})
+      })
     })
     .catch(error => console.error(error))  
   });
 
   app.get('/alumni', (req,res)=>{
-    db.collection('article').find({ category: "Alumni" }).toArray()
-    .then(results => {
-      console.log(req.user)
-      res.render('category',{article:results, user: req.user, isLogged: req.isAuthenticated(), cat: "Alumni" })
+    db.collection('article').find().toArray()
+    .then(results=>{
+      db.collection('author').find().toArray() 
+      .then(result2=>{
+        res.render('category',{article:results, cat:"Alumni", author:result2, query : "alumni", user: req.user, isLogged: req.isAuthenticated()})
+      })
     })
     .catch(error => console.error(error))  
   });
 
   app.get('/scitech', (req,res)=>{
-    db.collection('article').find({ category: "SciTech" }).toArray()
-    .then(results => {
-      console.log(req.user)
-      res.render('category',{article:results, user: req.user, isLogged: req.isAuthenticated(), cat:"Science and Technology" })
+    db.collection('article').find().toArray()
+    .then(results=>{
+      db.collection('author').find().toArray() 
+      .then(result2=>{
+        res.render('category',{article:results, cat:"Science and Technology", author:result2, query : "scitech", user: req.user, isLogged: req.isAuthenticated()})
+      })
     })
     .catch(error => console.error(error))  
   });
 
   app.get('/cult', (req,res)=>{
-    db.collection('article').find({ category: "Cult" }).toArray()
-    .then(results => {
-      console.log(req.user)
-      res.render('category',{article:results, user: req.user, isLogged: req.isAuthenticated(), cat:"Cultural" })
+    db.collection('article').find().toArray()
+    .then(results=>{
+      db.collection('author').find().toArray() 
+      .then(result2=>{
+        res.render('category',{article:results, cat:"Cultural", author:result2, query : "cult", user: req.user, isLogged: req.isAuthenticated()})
+      })
     })
     .catch(error => console.error(error))  
   });
 
   app.get('/sports', (req,res)=>{
-    db.collection('article').find({ category: "Sports" }).toArray()
-    .then(results => {
-      console.log(req.user)
-      res.render('category',{article:results, user: req.user, isLogged: req.isAuthenticated(), cat:"Sports" })
+    db.collection('article').find().toArray()
+    .then(results=>{
+      db.collection('author').find().toArray() 
+      .then(result2=>{
+        res.render('category',{article:results, cat:"Sports", author:result2, query : "sports", user: req.user, isLogged: req.isAuthenticated()})
+      })
     })
     .catch(error => console.error(error))  
-  });  
+  }); 
  
   app.get('/articles/:id', (req,res)=>{
    
     db.collection('comment').find().toArray()
-    .then(result1=> {db.collection('author').find().toArray() 
-                    .then(result3=>{
-                      db.collection('article').find({id:req.params.id.toString()}).toArray()
-                      .then(result2=>{res.render('articles',{article:result2, user: req.user, isLogged : req.isAuthenticated(), id:req.params.id , comment:result1 , author:result3});console.log(result1)})
-                      .catch(error=>console.log(error+"1"));
-                    }).catch(error=>console.log(error+"2"));
+    .then(result1=> { db.collection('author').find().toArray() 
+      .then(result3=>{
+        db.collection('article').findOne({id:req.params.id.toString()})
+        .then(result2=>{
+          db.collection('article').find().toArray()
+          .then(result=>{
+            res.render('articles',{article:result, result:result2, id:req.params.id , comment:result1 , author:result3, user: req.user, isLogged : req.isAuthenticated()})
+          })
+          console.log(result1)
+        })
+        .catch(error=>console.log(error+"1"));
+      }).catch(error=>console.log(error+"2"));
 
     }
     )
@@ -221,7 +235,10 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
 
     })
     app.get('/author/:id',(req,res)=>{
-      res.render('author.ejs',{user: req.user, isLogged: req.isAuthenticated() });
+      db.collection('article').find().toArray()
+      .then(result2=>{
+        res.render('author.ejs',{ article: result2, user: req.user, isLogged : req.isAuthenticated()});
+      })
     })
 
   })

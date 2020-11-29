@@ -56,9 +56,26 @@
                         <div class="col-xl-12">
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
-                                    <ul>     
-                                        <li>Recent Articles <i class="fa fa-bullhorn"></i></li>
-                                        <li></li>
+                                    <ul style="height:50px;">     
+                                        <li style="position:absolute; top:-0.53px;">
+                                            <div >
+                                                Recent Articles <i class="fa fa-bullhorn"></i>
+                                            </div>
+                                        </li>
+                                        <li style="padding-left:150px;">
+                                            <div class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <div class="carousel-item active">
+                                                        <!-- <a href="articles/0" style="color:#2d2d2d"><%= article[0].name %></a> -->
+                                                    </div>
+                                                    <% for(var i=1;i<article.length;i++){%>
+                                                    <div class="carousel-item">
+                                                        <a href="articles/<%=i%>" style="color:#2d2d2d"><%= article[i].name %></a>
+                                                    </div>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                                 
@@ -81,8 +98,8 @@
                 </div>
                 <div class="header-bottom container-fluid" >
                     <!-- Logo -->
-                    <div class="logo d-none d-lg-block">
-                        <a href="/"><img src="assets/img/gallery/logo.png" width="100" height="30" alt=""></a>
+                    <div class="logo d-none d-lg-block" style="padding:0;">
+                        <a href="/"><img src="assets/img/gallery/logo.png"  height="100" alt=""></a>
                     </div>
                     <div class="container-fluid">
                         <div class="menu-wrapper">
@@ -138,11 +155,11 @@
                   <div class="home-blog-single mb-30 ">
                       <div class="blog-img-cap colo">
                           <div class="blog-img">
-                              <img src="assets/img/gallery/<%=article[j].photo%>.jpg" alt="">
+                              <img src="assets/img/gallery/<%=article[j].photo%>.jpg" height="240px" alt="">
                               <!-- Blog date -->
                               <div class="blog-date text-center">
                               <% var str = article[j].date;
-                                var pieces = str.split(" "); %>
+                                var pieces = str.split("-"); %>
                                 <span><%= pieces[0].slice(0,2) %></span>
                                 <p><%= pieces[1] %></p>
                               </div>
@@ -183,7 +200,7 @@
                                     <img class="card-img rounded-0" src="assets/img/gallery/<%= article[i].photo %>.jpg" alt="">
                                     <a href="#" class="blog_item_date">
                                         <% var str = article[i].date;
-                                        var pieces = str.split(" "); %>
+                                        var pieces = str.split("-"); %>
                                         <h3><%= pieces[0].slice(0,2) %></h3>
                                         <p><%= pieces[1] %></p>
                                     </a>
@@ -206,16 +223,17 @@
                             
                             <aside class="single_sidebar_widget popular_post_widget">
                                 <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
-
+                                    <% for(var i=0;i<article.length;i++){%>
                                 <div class="media post_item">
-                                    <img src="assets/img/gallery/1.jpg" width="60px" height="50px" alt="post">
+                                    <img src="assets/img/gallery/<%= article[i].photo %>.jpg" width="60px" height="50px" alt="post">
                                     <div class="media-body">
-                                        <a href="articles/onlineinternships.html">
-                                            <h3 style="color: #2d2d2d;">Online Internships</h3>
+                                        <a href="articles/<%=i%>">
+                                            <h3 style="color: #2d2d2d;"><%= article[i].name %></h3>
                                         </a>
-                                        <p>7 Days ago</p>
+                                        <p><%= article[i].date %></p>
                                     </div>
                                 </div>
+                                    <% } %>
                                 
                             </aside>
                             
@@ -344,6 +362,12 @@
             autoplay: true,
             autoplaySpeed: 1500,
             });
+
+        $('.recent').slick({
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            });    
         });
 	</script>
     </body>
