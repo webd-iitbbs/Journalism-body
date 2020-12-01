@@ -11,7 +11,7 @@
                 <h3 class="center">Trending news at IIT Bhubaneswar</h3>
             </header>
             
-            <section class="panel" data-type="posts" data-width="full" data-posts-per-row="4" data-featured-post="first-last">
+            <section class="panel" data-type="posts" data-width="full" data-posts-per-row="3" data-featured-post="none">
 
                 <div class="grid-container">
                 <% var j =0; var count ; for( j=0;j<article.length;j++){ count = 0;
@@ -21,7 +21,7 @@
                         <figure class="landscape">
                             <a href="articles/<%=j%>" aria-hidden="true" tabindex="-1">
                                 <picture data-anchor-v="center" data-anchor-h="center">
-                                    <img role="presentation" alt="" src="assets/img/gallery/<%=article[j].photo%>.jpg" />
+                                    <img role="presentation" alt="" src="assets/img/gallery/<%=article[j].photo%>.jpg" style="height:525px;" />
                                 </picture>
                             </a>
                         </figure>
