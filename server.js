@@ -209,26 +209,26 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     //.catch(error => console.error(error))
   });
 
-  // //to add an author
-  // app.get('/authors',(req,res)=>{
-  //   //     db.collection('article').find().toArray()
-  //   // .then(results => {
-  //     //res.render('index')
-  //     res.sendFile(__dirname + '/addAuthor.html');
-  //     //})
-  //   //.catch(error => console.error(error))
-  // });
+  //to add an author
+  app.get('/authors',(req,res)=>{
+    //     db.collection('article').find().toArray()
+    // .then(results => {
+      //res.render('index')
+      res.sendFile(__dirname + '/addAuthor.html');
+      //})
+    //.catch(error => console.error(error))
+  });
 
   app.post('/articles', (req,res)=>{ 
       articlesCollection.insertOne(req.body)
           .then(result=>res.redirect('/'))
           .catch(error=>console.log(error)); 
   })
-  // app.post('/authors', (req,res)=>{ 
-  //   authorCollection.insertOne(req.body)
-  //       .then(result=>res.redirect('/'))
-  //       .catch(error=>console.log(error));
-  // });
+  app.post('/authors', (req,res)=>{ 
+    authorCollection.insertOne(req.body)
+        .then(result=>res.redirect('/'))
+        .catch(error=>console.log(error));
+  });
 
     app.post('/comments/:id',(req,res)=>{
       commentCollection.insertOne({comment: req.body.comment,_id: req.body._id, name:req.user.name, article_id:req.params.id, date:req.body.startdate, photo:req.user.photo })
