@@ -67,7 +67,7 @@ color: black;
 
 @media only screen and (min-width: 772px){
 .services{
-  height: 88vh;
+  /* height: 88vh; */
   padding-top: 40px;
 }
 }
@@ -399,7 +399,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
             <div class="col-lg-8">
               <section class="why-us">
 
-                <h2>Recent Articles</h2>
+                <!-- <h2>Recent Articles</h2> -->
                 <br>
                   <div class="row">
                     
@@ -416,7 +416,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                                             
                                               <h2><%=article[j].name%></h2>
                                               
-                                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
+                                              <p><%= article[j].pure_text.split(" ").slice(0,20).join(" ")%></p>
                                               <% for(var k=0;k<author.length;k++){
                                                 console.log("HI");
                                                 console.log(article[j].author_id);
@@ -585,7 +585,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                       <div class="col-lg-8 col-12 ">
                           <div class="row" id="articles">
 
-                              <% var j =0; var count ; for( j=article.length-2;j>article.length-6;j--){ count = 0;
+                              <% var j =0; var count ; for( j=article.length-2;j>article.length-8;j--){ count = 0;
                                
                                 {
                                     
@@ -598,7 +598,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                                                             <a href="articles/<%=j%>" aria-hidden="true" tabindex="-1">
                                                             <h2><%=article[j].name%></h2>
                                                           </a>
-                                                          <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
+                                                          <p class="mb-3"><%= article[j].pure_text.split(" ").slice(0,70).join(" ")%> <span>....</span></p>
                                                           <div class="post-meta">
                                                            
                                                             <!-- <% for (var i =0; i <=author.length-1;  i++ ) { 
