@@ -76,7 +76,7 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     db.collection('author').find().toArray() 
     .then(result3=>{
       db.collection('article').find().toArray()
-      .then(result2=>{res.render('stanford',{article:result2, author:result3, user: req.user, isLogged : req.isAuthenticated()})})
+      .then(result2=>{res.render('index',{article:result2, author:result3, user: req.user, isLogged : req.isAuthenticated()})})
       .catch(error=>console.log(error+"1"));
     }).catch(error=>console.log(error+"2"));
    
