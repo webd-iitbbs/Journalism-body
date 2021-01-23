@@ -315,17 +315,16 @@ function getDate()
                      </form>
                   </div>
                </div>
-            </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
 
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
-                            <% for(var i=0;i<article.length;i++){%>
+                            <% for(var i=article.length-1;i>article.length-6;i--){%>
                         <div class="media post_item">
                             <img src="../assets/img/gallery/<%= article[i].photo %>.jpg" style="width:60px; height:50px;" alt="post">
                             <div class="media-body">
-                                <a href="articles/<%=i%>">
+                                <a href="./<%=i%>">
                                     <h3 style="color: #2d2d2d;"><%= article[i].name %></h3>
                                 </a>
                                 <p><%= article[i].date %></p>
@@ -348,7 +347,7 @@ function getDate()
                         <div class="media post_item">
                             <img src="../assets/img/gallery/<%= article[i].photo %>.jpg" style="width:60px; height:50px;" alt="post">
                             <div class="media-body">
-                                <a href="articles/<%=i%>">
+                                <a href="./<%=i%>">
                                     <h3 style="color: #2d2d2d;"><%= article[i].name %></h3>
                                 </a>
                                 <p><%= article[i].date %></p>

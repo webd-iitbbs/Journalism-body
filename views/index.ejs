@@ -1,374 +1,946 @@
-<!doctype html>
-<html class="no-js" lang="zxx">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> Journalism Body | IIT Bhubaneswar </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/iitbbslogo.png">
-	<!-- CSS here -->
-	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="./assets/css/slicknav.css">
-    <link rel="stylesheet" href="./assets/css/flaticon.css">
-    <link rel="stylesheet" href="./assets/css/gijgo.css">
-	<link rel="stylesheet" href="./assets/css/animate.min.css">
-	<link rel="stylesheet" href="./assets/css/magnific-popup.css">
-	<link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
-	<link rel="stylesheet" href="./assets/css/themify-icons.css">
-	<link rel="stylesheet" href="./assets/css/slick.css">
-    <link rel="stylesheet" href="./assets/css/slick-theme.css"/>
-	<link rel="stylesheet" href="./assets/css/nice-select.css">
-	<link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<%- include('header') -%>
+  
+<style>
+    body {
+font-family: "Open Sans", sans-serif;
+color: #444;
+background-color: white;
+}
 
-<body>
+a {
+color: rgba(117, 117, 117, 1);
+text-decoration: none;
+}
 
-    <!--? Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="assets/img/gallery/iitbbslogo.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Preloader Start -->
+a:hover {
 
-        <header>
-        <!-- Header Start -->
-        <div class="header-area">
-            <div class="main-header ">
-                <div class="header-top d-none d-lg-block">
-                    <!-- Left Social -->
-                    <div class="header-left-social">
-                        <ul class="header-social">    
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="container">
-                        <div class="col-xl-12">
-                            <div class="row d-flex justify-content-between align-items-center">
-                                <div class="header-info-left">
-                                    <ul style="height:50px;">     
-                                        <li style="position:absolute; top:-0.53px;">
-                                            <div >
-                                                Recent Articles <i class="fa fa-bullhorn"></i>
-                                            </div>
-                                        </li>
-                                        <li style="padding-left:150px;">
-                                            <div class="carousel slide" data-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <!-- <a href="articles/0" style="color:#2d2d2d"><%= article[0].name %></a> -->
-                                                    </div>
-                                                    <% for(var i=1;i<article.length;i++){%>
-                                                    <div class="carousel-item">
-                                                        <a href="articles/<%=i%>" style="color:#2d2d2d"><%= article[i].name %></a>
-                                                    </div>
-                                                    <% } %>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="header-info-right ">
-                                    <% if (!isLogged) { %>
-                                    <ul>    
-                                        <li><a href="/auth/google"><i class="fa fa-user"></i>Login</a></li>
-                                    </ul>
-                                    <% } else { %>
-                                    <ul>    
-                                        <li>
-                                            <a href="/logout">&nbsp;<%=user.name %>&nbsp;<i class="fa fa-md fa-sign-out"></i></a>
-                                        </li>
-                                    </ul>
-                                    <%}%>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-bottom container-fluid" >
-                    <!-- Logo -->
-                    <div class="logo d-none d-lg-block" style="padding:0;">
-                        <a href="/"><img src="assets/img/gallery/logo.png"  height="100" alt=""></a>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="menu-wrapper">
-                            <!-- Logo -->
-                            <div class="logo logo2 d-block d-lg-none">
-                                <a href="/"><img src="assets/img/gallery/logo.png" alt=""></a>
-                            </div>
-                            <!-- Main-menu -->
-                            <div class="main-menu d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">                                                                                          
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="/studentlife">Student Life</a></li>
-                                        <li><a href="/career">Career</a></li>
-                                        <li><a href="/alumni">Alumni</a></li>    
-                                        <li><a href="/scitech">SciTech</a></li>
-                                        <li><a href="/cult">Cult</a></li>
-                                        <li><a href="/sports">Sports</a></li>
-                                        <li><a href="/aboutus">About</a></li>
-                                        <li><a href="/contact">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <!-- Header-btn -->
-                        </div>
-                        <!-- Mobile Menu -->
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Header End -->
-    </header>
+text-decoration: none;
+}
 
-<main>
-<div class="home-blog-area section-padding30 container">
-      <div class="container">
-          <!-- Section Tittle -->
+h1, h2, h3, h4, h5, h6, .font-primary {
+font-family: "Roboto", sans-serif;
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+height: 80px;
+transition: all 0.5s;
+z-index: 997;
+transition: all 0.5s;
+padding: 20px 0;
+background: red;
+}
+
+#header.header-transparent {
+background-color: #b1040e;
+}
+
+#header.header-scrolled {
+background: red;
+height: 60px;
+padding: 10px 0;
+}
+
+#header .logo h1 {
+font-size: 28px;
+margin: 0;
+padding: 4px 0;
+line-height: 1;
+font-weight: 400;
+letter-spacing: 3px;
+text-transform: uppercase;
+}
+
+#header .logo a {
+color: black;
+text-decoration: none;
+}
+#header .logo h1{
+color: white;
+text-decoration: none;
+}
+
+#header .logo img {
+padding: 0;
+margin: 0;
+max-height: 40px;
+}
+
+#main {
+margin-top: 80px;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu, .nav-menu * {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+.nav-menu > ul > li {
+position: relative;
+white-space: nowrap;
+float: left;
+}
+
+.nav-menu a {
+display: block;
+position: relative;
+color: black;
+padding: 10px 15px;
+transition: 0.3s;
+font-size: 14px;
+font-family: "Open Sans", sans-serif;
+}
+
+.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+color: white;
+text-decoration: none;
+}
+
+.nav-menu .drop-down ul {
+display: block;
+position: absolute;
+left: 0;
+top: calc(100% - 30px);
+z-index: 99;
+opacity: 0;
+visibility: hidden;
+padding: 10px 0;
+background: white;
+box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+transition: ease all 0.3s;
+}
+
+.nav-menu .drop-down:hover > ul {
+opacity: 1;
+top: 100%;
+visibility: visible;
+}
+
+.nav-menu .drop-down li {
+min-width: 180px;
+position: relative;
+}
+
+.nav-menu .drop-down ul a {
+padding: 10px 20px;
+font-size: 14px;
+font-weight: 500;
+text-transform: none;
+color: #1c3745;
+}
+
+.nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+color: #68A4C4;
+}
+
+.nav-menu .drop-down > a:after {
+content: "\ea99";
+font-family: IcoFont;
+padding-left: 5px;
+}
+
+.nav-menu .drop-down .drop-down ul {
+top: 0;
+left: calc(100% - 30px);
+}
+
+.nav-menu .drop-down .drop-down:hover > ul {
+opacity: 1;
+top: 0;
+left: 100%;
+}
+
+.nav-menu .drop-down .drop-down > a {
+padding-right: 35px;
+}
+
+.nav-menu .drop-down .drop-down > a:after {
+content: "\eaa0";
+font-family: IcoFont;
+position: absolute;
+right: 15px;
+}
+
+@media (max-width: 1366px) {
+.nav-menu .drop-down .drop-down ul {
+  left: -90%;
+}
+.nav-menu .drop-down .drop-down:hover > ul {
+  left: -100%;
+}
+.nav-menu .drop-down .drop-down > a:after {
+  content: "\ea9d";
+}
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+position: fixed;
+top: 0;
+bottom: 0;
+z-index: 9999;
+overflow-y: auto;
+left: -260px;
+width: 260px;
+padding-top: 18px;
+background: #1e4356;
+transition: 0.4s;
+}
+
+.mobile-nav * {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+.mobile-nav a {
+display: block;
+position: relative;
+color: #ddecf5;
+padding: 10px 20px;
+font-weight: 500;
+}
+
+.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
+color: #a2cce3;
+text-decoration: none;
+}
+
+.mobile-nav .drop-down > a:after {
+content: "\ea99";
+font-family: IcoFont;
+padding-left: 10px;
+position: absolute;
+right: 15px;
+}
+
+.mobile-nav .active.drop-down > a:after {
+content: "\eaa0";
+}
+
+.mobile-nav .drop-down > a {
+padding-right: 35px;
+}
+
+.mobile-nav .drop-down ul {
+display: none;
+overflow: hidden;
+}
+
+.mobile-nav .drop-down li {
+padding-left: 20px;
+}
+
+.mobile-nav-toggle {
+position: fixed;
+right: 15px;
+top: 15px;
+z-index: 9998;
+border: 0;
+background: none;
+font-size: 24px;
+transition: all 0.4s;
+outline: none !important;
+line-height: 1;
+cursor: pointer;
+text-align: right;
+}
+
+.mobile-nav-toggle i {
+color: black;
+}
+
+.mobile-nav-overly {
+width: 100%;
+height: 100%;
+z-index: 9997;
+top: 0;
+left: 0;
+position: fixed;
+background: rgba(30, 67, 86, 0.9);
+overflow: hidden;
+display: none;
+}
+
+.mobile-nav-active {
+overflow: hidden;
+}
+
+.mobile-nav-active .mobile-nav {
+left: 0;
+}
+
+.mobile-nav-active .mobile-nav-toggle i {
+color: #fff;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Our Services
+--------------------------------------------------------------*/
+
+
+.services .Announcements {
+padding-top: 20px;
+position: relative;
+overflow: hidden;
+
+background: white;
+align-items: center;
+border: 1px solid #fff;
+border-radius: 10px;
+margin-top: 40px;
+}
+
+.services .Announcements .title{
+padding-top: 15px;
+padding-right: 15px;
+}
+.services .Announcements .description{
+font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+padding-top: 10px;
+font-size: 16px;
+line-height: 28px;
+color: black;
+padding-left: 10px;
+
+}
+
+@media only screen and (min-width: 772px){
+.services{
+  height: 88vh;
+  padding-top: 40px;
+}
+}
+
+
+
+
+
+br{
+padding: 0 px;
+margin: 0px;
+line-height: 1px;
+}
+
+
+
+
+.services .title a {
+color: #111;
+}
+
+.services .description {
+font-size: 15px;
+line-height: 28px;
+margin-bottom: 0;
+}
+
+
+/*--------------------------------------------------------------
+# Why Us
+--------------------------------------------------------------*/
+.why-us .container {
+
+background: #fff;
+}
+@media only screen and (min-width: 900px){
+#recentposts{
+width: 90%;
+}
+}
+@media only screen and (min-width: 992px){
+.Announcements::before{
+content: '';
+position: absolute;
+background-color: rgb(230, 230, 230);
+width: 0.5px;
+height: 100%;
+}
+}
+@media only screen and (min-width: 772px){
+#table .line{
+  display: none;
+}
+}
+
+@media only screen and (min-width: 772px){
+.post-entry-1 .line1{
+  display: none;
+}
+}
+
+@media only screen and (min-width: 772px){
+  .post-entry-2 .contents{
+    padding-left: 35px;
+  }
+  }
+
+
+
+.why-us h1{
+font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+max-height: 56px;
+font-size: 30px;
+font-weight: 200;
+letter-spacing: 0;
+color: rgba(41, 41, 41, 1);
+line-height: 28px;
+margin: 0;
+padding-top: 10px;  
+}
+
+.post-entry-1 h2{
+font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+max-height: 56px;
+font-size: 22px;
+font-weight: 700;
+letter-spacing: 0;
+color: rgba(41, 41, 41, 1);
+line-height: 28px;
+margin: 0;
+padding-top: 10px;  
+}
+
+.why-us .post-entry-1{
+padding-bottom: 20px;
+}
+.why-us p{
+font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+padding-top: 10px;
+font-size: 18px;
+line-height: 28px;
+color: rgba(41, 41, 41, 1);
+}
+
+.why-us h4{
+
+max-height: 16px;
+
+font-size: 12px;
+line-height: 16px;
+font-weight: 500;
+color: rgba(41, 41, 41, 1);
+
+padding-top: 5px;
+padding-bottom: 10px;
+}
+
+
+.post-entry-2{
+margin-bottom: 30px;
+}
+.post-entry-2 .thumbnail{
+background-size: cover;
+background-position: center;
+width: 40%;
+}
+.post-entry-2 .contents{
+width: 60%;
+
+
+}
+.post-entry-2 h2{
+font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+color: rgba(41, 41, 41, 1);
+font-weight: 700;
+line-height: 20px;
+font-size: 16px;
+margin: 0;
+padding-top: 10px;
+}
+.why-us span{
+font-family: medium-content-sans-serif-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+font-size: 17px;
+color: rgba(117, 117, 117, 1);
+line-height: 20px;
+font-weight: 400;
+
+}
+#trarticles span{
+font-family: medium-content-sans-serif-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+font-size: 16px;
+color: rgba(117, 117, 117, 1);
+line-height: 20px;
+font-weight: 400;
+
+}
+#trarticles{
+  background-color: white;
+  /* width: 70%; */
+}
+
+.third{
+background-color: yellow;
+max-width: 600px;
+
+}
+
+
+#tr p{
+letter-spacing: 0.083em;
+line-height: 16px;
+font-size: 15px;
+font-weight: 700;
+color: rgba(41, 41, 41, 1);
+font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+vertical-align: middle;
+padding-top: 8px;
+}
+.trend-entry .number {
+-webkit-box-flex: 0;
+-ms-flex: 0 0 50px;
+flex: 0 0 50px;
+font-size: 30px;
+line-height: 1;
+color: #ccc;
+font-weight: 600;
+
+
+
+}
+
+.trend-contents h2{
+max-height: 40px;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+display: -webkit-box;
+font-weight: 750;
+font-size: 16px;
+color: rgba(41, 41, 41, 1);
+line-height: 20px;
+letter-spacing: 0;
+font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+}
+.trend-entry{
+margin-bottom: 30px;
+padding-right: 15px;
+padding-left: 15px;
+}
+svg {
+vertical-align: middle;
+}
+#tr{
+padding-right: 15px;
+padding-left: 15px;
+}
+
+
+
+
+
+#articles{
+padding-left: 15px;
+padding-right: 15px;
+}
+#articles .contents{
+margin-left: 20px;
+
+}
+
+@media only screen and (max-width: 600px) {
+#articles .mb-3{
+  display: none;
+}
+}
+@media only screen and (min-width: 900px){
+#articles .contents h2{
+letter-spacing: 0px;
+max-height: 40px;
+line-height: 20px;
+font-size: 20px;
+font-weight: 700;
+color: rgba(41, 41, 41, 1);
+font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+}
+#articles .mb-3{
+font-size: 16px;
+line-height: 20px;
+font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+margin: 0;
+color: rgba(117, 117, 117, 1);
+padding-top: 10px;
+
+}
+#articles .post-meta{
+font-size: 14px;
+color: rgba(117, 117, 117, 1);
+line-height: 20px;
+font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-weight: 400;
+padding-top: 10px;
+}
+
+#sticky {
+  position: -webkit-sticky;
+  position: sticky;
+top: 0;
+background-color: white;
+}
+.stick {
+position: -webkit-sticky;
+position: sticky;
+top: 30px;
+}
+#stickylinks{
+
+flex-wrap: wrap;
+flex-direction: row;
+display: flex;
+padding-left: 20px;
+padding-top: 45px;
+
+
+}
+#stickylinks .fx{
+margin-right: 26px;
+margin-bottom: 8px;
+display: block;
+font-weight: 400;
+color: rgba(117, 117, 117, 1);
+font-size: 16px;
+line-height: 20px;
+font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+#contact{
+padding-left: 20px;
+padding-right: 20px;
+
+}
+
+.form{widows: 100%;height:470px;background: white;border-radius:8px;box-shadow:0 0 20px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 20px ;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
+.form h2{margin:10px 0;padding-bottom:10px;width:150px;color:#78788c;font-size: 25px; border-bottom:3px solid #78788c}
+.form input{width:100%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid #bebed2}
+.form input:focus{border-bottom:2px solid #78788c}
+.form p:before{content:attr(type);display:block;margin:28px 0 0;font-size:14px;color:#5a5a5a}
+.form button{
+
+padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px solid #78788c;background:0;color:#5a5a6e;cursor:pointer; border-radius: 10px; transition:all .3s}
+.form button:hover{background:#78788c;color:#fff}
+.form div{content:'Hi';position:absolute;bottom:-15px;right:-20px;background:#50505a;color:#fff;width:320px;padding:16px 4px 16px 0;border-radius:6px;font-size:13px;box-shadow:10px 10px 40px -14px #000}
+.form span{margin:0 5px 0 15px}
+
+
+</style> 
+
+
+  <main id="main">
+
+
+      <!-- ======= Services Section ======= -->
+      <section class="services">
+        <div class="container-fluid" id="recentposts">
+          <div class="col-md-12">
+  
           <div class="row">
-              <div class="col-lg-12">
-                  <div class="section-tittle text-center mb-50">
-                      <h2>Trending Articles</h2>
-                  </div>
-              </div>
-          </div>
-          <div class="row slider">
-          <% for(var j=0;j<article.length;j++){
-              if(article[j].trending=="on") {%>
-          
-              <div class="col-md-4 ">
-                  <div class="home-blog-single mb-30 ">
-                      <div class="blog-img-cap colo">
-                          <div class="blog-img">
-                              <img src="assets/img/gallery/<%=article[j].photo%>.jpg" height="240px" alt="">
-                              <!-- Blog date -->
-                              <div class="blog-date text-center">
-                              <% var str = article[j].date;
-                                var pieces = str.split("-"); %>
-                                <span><%= pieces[0].slice(0,2) %></span>
-                                <p><%= pieces[1] %></p>
-                              </div>
-                          </div>
-                          <div class="blog-cap ">
-                            <% for(var k=0;k<author.length;k++)
-                              if(article[j].author_id==author[k].id) { %>
-                                <p><%= author[k].name %></p>
-                            <% } %>
-                              <h3><a href="articles/<%=j%>"><%=article[j].name%></a></h3>
-                              <a href="articles/<%=j%>" class="more-btn">Read more »</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              
-                <%}}%>
-            </div>
-        </div>
-    </div>
+            <div class="col-lg-8">
+              <section class="why-us">
 
- <!--================Blog Area =================-->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-tittle text-center mb-50">
-                    <h2 class="lathed">Latest Articles</h2>
+                  <div class="row">
+                    
+                    <div class="col-md-6">
+                          <% var j =0; var count ; for( j=0;j<article.length;j++){ count = 0;
+                          if(article[j].trending=="on") {
+                          count++ %>
+                              <article >
+                                  
+                                      <a href="articles/<%=j%>" aria-hidden="true" tabindex="-1">
+                                          <div class="post-entry-1">
+                                              <img src="assets/img/gallery/<%=article[article.length-1].photo%>.jpg" width="100%" height="auto">
+                                            
+                                            
+                                              <h2><%=article[j].name%></h2>
+                                              
+                                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
+                                              <% for(var k=0;k<author.length;k++){
+                                                console.log("HI");
+                                                console.log(article[j].author_id);
+                                               console.log(k);
+         if(article[j].author_id===author[k].id) {
+           console.log(k); %>
+           <span class="d-block"><a href="#"> <%=author[k].name%></a> in <a href="#"><%=article[j].category%></a></span>
+       <% break}}%>
+                                              
+                                              <div class="line1">
+                                                <br>
+                                                <hr class="px-5">
+                                              </div>
+                                            </div>
+                                              
+                                      </a>
+                                
+                                 
+                              </article>
+                          <% }  if(count==1) break; } %>
+                          
+                          </div>
+
+                          <br>
+
+                          <div class="col-md-6" id="recent">
+                              <% var j =0; var count ; for( j=article.length-2;j>article.length-6;j--){ count = 0;
+                              {
+                              count++ %>
+                                  <article >
+                                      
+                                          <a href="articles/<%=j%>" aria-hidden="true" tabindex="-1">
+                                              <div class="post-entry-2 d-flex">
+                                                  
+                                                
+                                                  <div class="contents">
+                    
+                                                      <h2><%=article[j].name%></h2>
+                                                    
+                                                      <br>
+                                                      <% for(var k=0;k<author.length;k++){
+                                                        console.log("HI");
+                                                        console.log(article[j].author_id);
+                                                       console.log(k);
+                 if(article[j].author_id===author[k].id) {
+                   console.log(k); %>
+                   <span class="d-block"><a href="#"> <%=author[k].name%></a> in <a href="#"><%=article[j].category%></a></span>
+               <% break}}%>
+                                                      
+                                                      </div>
+                                                      <div class="thumbnail" style="background-image: url('assets/img/gallery/<%=article[j].photo%>.jpg')"></div>
+                                                  </div>
+                                                  
+                                          </a>
+                                    
+                                     
+                                  </article>
+                              <% }  } %>
+                              
+                          
+
+                          </div>
+                
+                 
+                
+                      </div>
+              
+                  </section><!-- End Why Us Section -->
                 </div>
-            </div>
-        </div>
-        <section class="lat blog_area section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mb-5 mb-lg-0">
-                        <div class="blog_left_sidebar">
-                           <% for(var i=0;i<article.length;i++){%>
-                            <article class="blog_item">
-                                <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="assets/img/gallery/<%= article[i].photo %>.jpg" alt="">
-                                    <a href="#" class="blog_item_date">
-                                        <% var str = article[i].date;
-                                        var pieces = str.split("-"); %>
-                                        <h3><%= pieces[0].slice(0,2) %></h3>
-                                        <p><%= pieces[1] %></p>
-                                    </a>
-                                </div>
-                                <div class="blog_details">
-                                    <a class="d-inline-block" href="articles/<%=i%>">
-                                        <h2 class="blog-head" style="color: #2d2d2d;"><%= article[i].name %></h2>
-                                    </a>
-                                    <p><%= article[i].pure_text.split(" ").slice(0,50).join(" ")%> <span>...</span></p> 
-                                        
-                                        <a href="articles/<%=i%>" class="more-btn">Read more »</a>
-                                </div>
-                            </article>
-                            <% } %>
-                        </div>
+                
+               
+              
+                
+                <div class="col-md-6 col-lg-4" id="table">
+                  <div class="line">
+                  <hr class="px-5">
+                </div>
+                  <div class="Announcements">
+                    <div class="row justify-content-center">
+                     
+                    <h4 class="title">Announcements</h4>
+                    <i class="fa fa-bullhorn fa-3x" aria-hidden="true"></i>
+                  
                     </div>
-                    <div class="col-lg-4">
-                        <div class="blog_right_sidebar">
-                            
-                            
-                            <aside class="single_sidebar_widget popular_post_widget">
-                                <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
-                                    <% for(var i=0;i<article.length;i++){%>
-                                <div class="media post_item">
-                                    <img src="assets/img/gallery/<%= article[i].photo %>.jpg" width="60px" height="50px" alt="post">
-                                    <div class="media-body">
-                                        <a href="articles/<%=i%>">
-                                            <h3 style="color: #2d2d2d;"><%= article[i].name %></h3>
-                                        </a>
-                                        <p><%= article[i].date %></p>
+                    <br>
+                    <ul>
+                      <li>
+                    <p class="description">
+                      News Needs to Meet Its Audiences Where They Are News Needs to Meet Its Audiences Where They
+                    </p>
+                     </li>
+                     <li>
+                      <p class="description">
+                        News Needs to Meet Its Audiences Where They Are News Needs to Meet Its Audiences Where They
+                      </p>
+                       </li>
+                       <li>
+                        <p class="description">
+                          News Needs to Meet Its Audiences Where They Are News Needs to Meet Its Audiences Where They
+                        </p>
+                         </li>
+                         <li>
+                          <p class="description">
+                            News Needs to Meet Its Audiences Where They Are News Needs to Meet Its Audiences Where They
+                          </p>
+                           </li>
+                    </ul>
+                  </div>
+                </div>
+      
+              </div>
+            </div>
+      
+            </div>
+            </section>
+
+            <div class="container" id="trarticles">
+              <hr class="px-5">
+                <div class='row my-5'>
+                    <div class="col-12 mb-3" >
+                      <div class="row" id="tr">
+                      <svg width="28" height="29" viewBox="0 0 28 29" fill="none" class="mg x"><path fill="#fff" d="M0 .8h28v28H0z"></path>
+                        <g opacity="0.8" clip-path="url(#trending_svg__clip0)"><path fill="#fff" d="M4 4.8h20v20H4z"></path><circle cx="14" cy="14.79" r="9.5" stroke="#000"></circle>
+                          <path d="M5.46 18.36l4.47-4.48M9.97 13.87l3.67 3.66M13.67 17.53l5.1-5.09M16.62 11.6h3M19.62 11.6v3" stroke="#000" stroke-linecap="round"></path></g>
+                          <defs><clipPath id="trending_svg__clip0"><path fill="#fff" transform="translate(4 4.8)" d="M0 0h20v20H0z"></path></clipPath></defs></svg>
+                        <p>TRENDING ON MEDIUM</p>
+                      </div>
+            
+                    </div>
+                  
+                    <% var j =0; var count=0 ; for( j=0;j<article.length ;j++){ 
+                      if(article[j].trending=="on") {
+                         count++ %>
+                      
+
+                            <div class="col-lg-4 col-12 my-2">
+                              <div class="row">
+                                 <div class="trend-entry d-flex">
+                                   <div class="number align-self-start">0<%=j+1%></div>
+                                   <div class="trend-contents">
+                                  <a href="articles/<%=j%>" aria-hidden="true" tabindex="-1">
+                                     
+                                        
+                                                    <h2><%=article[j].name%></h2>
+                                                 
+                                  </a>
+                                  <div class="post-meta">
+                                    <span class="date-read"><%=article[j].date%> <span class="mx-1">•</span> 3 min read <span class="icon-star2"></span></span>
+                                    </div>
+                                    </div>
                                     </div>
                                 </div>
-                                    <% } %>
-                                
-                            </aside>
+                            </div>
                             
+                       
+                      <% } if(count==6){break}    } %>
+                    
+            
+                   
 
-                            <aside class="single_sidebar_widget instagram_feeds">
-                                <h4 class="widget_title" style="color: #2d2d2d;">Instagram Feeds</h4>
-                                
-                            </aside>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--================Blog Area =================-->
-    </main>
-    <footer>
-        <!--? Footer Start-->
-        <div class="footer-area footer-bg">
-            <div class="container">
-                <div class="footer-top footer-padding pa">
-                    <!-- Footer Menu -->
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-xl-4 col-lg-4">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Contact Us</h4>
-                                    <ul>
-                                        <li>Email : media@iitbbs.ac.in</li>
-                                        <li><h>Media Body</h></li>
-                                        <li>IIT Bhubaneswar</li>
-                                        <li>Argul, Jatni</li>
-                                        <li>Khorda, Odisha-752050</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Quick Links</h4>
-                                    <ul>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Team</a></li>
-                                        <li><a href="#">IIT Bhubaneswar</a></li>
-                                        <li><a href="#">Student Gymkhana</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Reach us at</h4>
-                                    <div class="footer-social">
+ 
+              <div class="container">
+                  <hr class="px-5">
+                
+                  <div class="row mt-5">
+                      <div class="col-lg-8 col-12 ">
+                          <div class="row" id="articles">
+
+                              <% var j =0; var count ; for( j=article.length-2;j>article.length-6;j--){ count = 0;
+                               
+                                {
+                                    
+                                  count++ %>
+
+                                  
+                                                      <div class="post-entry-2 d-flex">
+                                                          <div class="thumbnail order-md-2" style="background-image: url('assets/img/gallery/<%=article[j].photo%>.jpg');"></div>
+                                                          <div class="contents order-md-1 pl-0">
+                                                            <a href="articles/<%=j%>" aria-hidden="true" tabindex="-1">
+                                                            <h2><%=article[j].name%></h2>
+                                                          </a>
+                                                          <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
+                                                          <div class="post-meta">
+                                                           
+                                                            <!-- <% for (var i =0; i <=author.length-1;  i++ ) { 
+                                                              
+                                                              if (author[i].id === article[j].article_id) 
+                                                                 %> -->
+                                                                 <% for(var k=0;k<author.length;k++){
+                                                                   console.log("HI");
+                                                                   console.log(article[j].author_id);
+                                                                  console.log(k);
+                            if(article[j].author_id===author[k].id) {
+                              console.log(k); %>
+                              <span class="d-block"><a href="#"> <%=author[k].name%></a> in <a href="#"><%=article[j].category%></a></span>
+                          <% break}}%>
+                                                                <!-- <span class="d-block"><a href="#"> <%=author[i].name%></a> in <a href="#"><%=article[j].category%></a></span>
+                                                                <% break %>  
+                                                              <%  } %>
+                                 -->
+                                                             
+                                                           
+                                                         
+                                                          
+                                                          <span class="date-read"> <%=article[j].date%> <span class="mx-1">•</span> 3 min read <span class="icon-star2"></span></span>
+                                                          </div>
+                                                          </div>
+                                                          </div>
+                                             
+                                        
+                                     
+                                  <% }  } %>
+                                  
+
+
+                              
+                          
+                                  
+                          </div>
+                      </div>
+                      <div class="col-lg-4 col-12" >
+                        <div class="row  stick">
+                           
+                                    <div class="col-12">
+                                        <div class="row" style="font-size: 14px;" id="stickylinks">
+                                           
                                        
-                                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <!-- <a  href="#"><i class="fab fa-google"></i></a> -->
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
-                                      </div>
+                                            <a href=""><h4 class="fx">Help</h4></a>
+                                            <a href=""><h4 class="fx">Status</h4></a>
+                                            <a href=""><h4 class="fx">Writers</h4></a>
+                                            <a href=""><h4 class="fx">Blog</h4></a>
+                                            <a href=""><h4 class="fx">Careers</h4></a>
+                                            <a href=""><h4 class="fx">Privacy</h4></a>
+                                            <a href=""> <h4 class="fx">Terms</h4> </a>
+                                            <a href=""><h4 class="fx">About</h4></a>
+                                           
+                                        </div>
+                
+                                    </div>
+                                    <div class="col-12" id="contact">
+                                      <form class="form">
+                                        <h2>CONTACT US</h2>
+                                        <p type="Name:"><input placeholder="Write your name here.."></input></p>
+                                        <p type="Email:"><input placeholder="Let us know how to contact you back.."></input></p>
+                                        <p type="Message:"><input placeholder="What would you like to tell us.."></input></p>
+                                       <center><button>Send Message</button></center>
+                                       
+                                      </form>
+                                    </div>
                                 </div>
                             </div>
+                           
+                
+                
                         </div>
-                    </div>
-                </div>
-                <!-- Footer Bottom -->
-                <div class="footer-bottom" style="padding-bottom: 0; padding-top: 0;">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-lg-12">
-                            <div class="footer-copy-right text-center">
-                                <p>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End-->
-    </footer>
-    <!-- Scroll Up -->
-    <div id="back-top" >
-        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-    </div>
+                
+                
+                          </div>
+                
+                
+                      </div>
+                   
+                
+                      
 
-    <!-- JS here -->
-	
-    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-    <!-- Jquery, Popper, Bootstrap -->
-    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <!-- Jquery Mobile Menu -->
-    <script src="./assets/js/jquery.slicknav.min.js"></script>
 
-    <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script src="./assets/js/owl.carousel.min.js"></script>
-    <script src="./assets/js/slick.min.js"></script>
-    <!-- One Page, Animated-HeadLin -->
-    <script src="./assets/js/wow.min.js"></script>
-    <script src="./assets/js/animated.headline.js"></script>
-    
-    <!-- Nice-select, sticky -->
-    <script src="./assets/js/jquery.nice-select.min.js"></script>
-    <script src="./assets/js/jquery.sticky.js"></script>
-    <script src="./assets/js/jquery.magnific-popup.js"></script>
 
-    <!-- contact js -->
-    <script src="./assets/js/contact.js"></script>
-    <script src="./assets/js/jquery.form.js"></script>
-    <script src="./assets/js/jquery.validate.min.js"></script>
-    <script src="./assets/js/mail-script.js"></script>
-    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-    
-    <!-- Jquery Plugins, main Jquery -->	
-    <script src="./assets/js/plugins.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-        $('.slider').slick({
-            dots:true,
-            arrows:true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 1500,
-            });
 
-        $('.recent').slick({
-            infinite: true,
-            speed: 300,
-            slidesToShow: 1,
-            });    
-        });
-	</script>
-    </body>
-</html>
+</main><!-- #main -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> 
+<script src="/public/assets/js/header.js"></script>
+
+<%- include('footer') -%>
