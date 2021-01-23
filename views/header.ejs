@@ -8,11 +8,11 @@
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/gallery/iitbbslogo.png">
   <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/styles.css">
+  <!-- <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/styles.css"> -->
   <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
+  <!-- <style>
 .footer-area .footer-top .single-footer-caption .footer-tittle ul li a {
     color: #bbbcbc;
     font-weight: 500;
@@ -62,7 +62,7 @@ body {
   text-align: center;
   color: #fff;
 }
-  </style>
+  </style> -->
 </head>
 
 <body class="home page-template page-template-homepage page-template-homepage-php page page-id-64 splash-parallax normal-home">
@@ -163,11 +163,9 @@ var articleTitle=[];
 searchInput.addEventListener('keyup', function() {
 const input = searchInput.value;
 suggestionsPanel.innerHTML = '';
-
 const suggestions = articleTitle.filter((art)=> {
  var obj=JSON.parse(art);
  const reg=RegExp(input, "gi");
-
   return obj.title.match(reg);
 });
 console.log(suggestions);
@@ -183,4 +181,3 @@ if (input === '') {
 });
    </script> 
   </header>
- 
