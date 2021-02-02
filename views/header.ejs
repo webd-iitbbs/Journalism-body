@@ -19,52 +19,34 @@
       font-size: 18px;
       text-decoration:none;
   }
-</style>
-<!-- 
-body {
-  font-family: Source Sans Pro,Helvetica Neue,Helvetica,Arial,sans-serif;
-}
-.nav {
-    padding-top: 37.5px;
-    padding-bottom: 0px;
-}
-body {
-  background: #dc5959;
-}
-.container {
-  width: 60%;
-  margin: 10px auto;
-  background: #333;
+.search-container {
+  width: 200px;
+  margin: 8px auto;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4), 0 4px 4px rgba(0, 0, 0, 0.2);
 }
-.container input {
-  background: transparent;
-  border: 0;
-  font-size: 30px;
-  color: #fff;
+.search-container input {
+  width: 200px;
+  height:32px;
+  background: #fff;
+  border-radius: 6px;
+  font-size: 18px;
+  color: #000000;
 }
 .suggestions {
+  width: 200px;
+  background: #fff;
+  z-index: 12;
   border-top: 2px solid #999;
 }
 .suggestions > div {
-  padding: 15px;
-  font-size: 20px;
-  color: #fff;
+  text-align: left;
+  font-size: 18px;
+  color: #000000;
   border-top: 1px solid #fff;
   cursor: pointer;
 }
-.suggestions > div:hover {
-  background-color: #1e4dd4;
-}
-.emphy {
-  width: 50%;
-  margin: 40px auto;
-  text-align: center;
-  color: #fff;
-}
-  </style> -->
+  </style>
 </head>
 
 <body class="home page-template page-template-homepage page-template-homepage-php page page-id-64 splash-parallax normal-home">
@@ -103,7 +85,7 @@ body {
       
       <nav id="gateway" class="menu-gateway-nav-container">
         <ul id="menu-gateway-nav" class="menu">
-          <div class="container">  
+          <div class="search-container">  
             <input class="search-input" type="text" placeholder="Search here..." />
             <div class="suggestions">
             </div>
@@ -111,7 +93,7 @@ body {
         </ul>
       </nav> 
 
-      <nav id="gateway" class="menu-gateway-nav-container">
+      <nav id="gateway" class="menu-gateway-nav-container d-none d-md-block">
         <ul id="menu-gateway-nav" class="menu">
             <% if (!isLogged) { %>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/auth/google"><i class="fa fa-user"></i>&nbsp; Login</a></li>
@@ -175,7 +157,7 @@ console.log(suggestions);
 suggestions.forEach((suggested)=> {
   var obj=JSON.parse(suggested);
   const div = document.createElement('div');
-  div.innerHTML = `<a href=articles/${obj.id}>${obj.title}<a>`;
+  div.innerHTML = `<a style="color:black; z-index:100;" href=articles/${obj.id}>${obj.title}<a>`;
   suggestionsPanel.appendChild(div);
 });
 if (input === '') {
