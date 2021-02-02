@@ -12,13 +12,15 @@
   <link rel="stylesheet" href="./assets/css/styles.css">
   <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <style>
-.footer-area .footer-top .single-footer-caption .footer-tittle ul li a {
-    color: #bbbcbc;
-    font-weight: 500;
-    font-size: 18px;
-    text-decoration:none;
-}
+ <style>
+  .footer-area .footer-top .single-footer-caption .footer-tittle ul li a {
+      color: #bbbcbc;
+      font-weight: 500;
+      font-size: 18px;
+      text-decoration:none;
+  }
+</style>
+<!-- 
 body {
   font-family: Source Sans Pro,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
@@ -71,7 +73,7 @@ body {
       <a href="/" class="su-brand" rel="home" id="header--wordmark" data-ga-action="Wordmark" style="margin:0; position:absolute; left:3em; float:left;">
         IIT Bhubaneswar
       </a>
-      <nav role="navigation" id="gateway" class="menu-gateway-nav-container" style="display:block; height:100%; background-color:#820000; float:left; position:absolute; top:0em; left:18em;">
+      <nav role="navigation" id="gateway" class="menu-gateway-nav-container d-none d-md-block" style="display:block; height:100%; background-color:#820000; float:left; position:absolute; top:0em; left:18em;">
         <ul id="menu-gateway-nav" class="menu">
             <li class="menu-item menu-item-type-post_type menu-item-object-page" style="height:100%; margin-top:0.8em; padding-right:10px; padding-left:10px;">
                 <div style="color:#fff; ">
@@ -80,7 +82,7 @@ body {
             </li>
         </ul>
       </nav>
-      <nav role="navigation" id="gateway" class="menu-gateway-nav-container" style=" float:left; position:absolute; left:26.3em;">
+      <nav role="navigation" id="gateway" class="menu-gateway-nav-container d-none d-md-block" style=" float:left; position:absolute; left:26.3em;">
         <ul id="menu-gateway-nav" class="menu">
             <li class="menu-item menu-item-type-post_type menu-item-object-page" style="margin-top:0.3em;">
                 <div class="carousel" data-ride="carousel">
@@ -119,12 +121,13 @@ body {
             <%}%>
         </ul>
       </nav>  
+      <button id="menu-toggle" aria-controls="primary-menu" aria-expanded="false" data-ga-action="Menu toggle">Menu</button>
     </section>
     <div id="menu-overlay" aria-hidden="true" role="presentation"></div>
-    <nav id="site-navigation" role="navigation" data-ga-category="Top nav">
+    <nav id="site-navigation" role="navigation" aria-label="Primary site navigation" data-ga-category="Top nav">
       <div class="menu-primary-nav-container">
         <ul id="primary-menu" class="menu">
-            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+            <li id="menu-item-2297" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
             <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/studentlife">Student Life</a></li>
             <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/career">Career</a></li>
             <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/alumni">Alumni</a></li>

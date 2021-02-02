@@ -29,7 +29,7 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     const articlesCollection = db.collection('article');
     const authorCollection = db.collection('author');
     const commentCollection = db.collection('comment')
-  app.listen(3000, ()=>{
+  app.listen(5000, ()=>{
         console.log("server's up")
   }); 
 

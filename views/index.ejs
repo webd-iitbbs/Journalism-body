@@ -287,14 +287,15 @@ vertical-align: middle;
 padding-right: 15px;
 padding-left: 15px;
 }
-
+.container-fluid{
+  width:90%;
+}
 
 
 
 
 #articles{
-padding-left: 15px;
-padding-right: 15px;
+padding-right: 25px;
 }
 #articles .contents{
 margin-left: 20px;
@@ -418,7 +419,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                                             
                                               <h2><%=article[j].name%></h2>
                                               
-                                              <p><%= article[j].pure_text.split(" ").slice(0,20).join(" ")%></p>
+                                              <p><%= article[j].pure_text.split(" ").slice(0,30).join(" ")%>...</p>
                                               <% for(var k=0;k<author.length;k++){
                                                 console.log("HI");
                                                 console.log(article[j].author_id);
@@ -454,7 +455,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                                               <div class="post-entry-2 d-flex">
                                                   
                                                 
-                                                  <div class="contents">
+                                                  <div class="contents" style="height:95px;">
                     
                                                       <h2><%=article[j].name%></h2>
                                                     
@@ -535,7 +536,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
             </div>
             </section>
 
-            <div class="container" id="trarticles">
+            <div class="container-fluid" id="trarticles">
               <hr class="px-5">
                 <div class='row my-5'>
                     <div class="col-12 mb-3" >
@@ -544,7 +545,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                         <g opacity="0.8" clip-path="url(#trending_svg__clip0)"><path fill="#fff" d="M4 4.8h20v20H4z"></path><circle cx="14" cy="14.79" r="9.5" stroke="#000"></circle>
                           <path d="M5.46 18.36l4.47-4.48M9.97 13.87l3.67 3.66M13.67 17.53l5.1-5.09M16.62 11.6h3M19.62 11.6v3" stroke="#000" stroke-linecap="round"></path></g>
                           <defs><clipPath id="trending_svg__clip0"><path fill="#fff" transform="translate(4 4.8)" d="M0 0h20v20H0z"></path></clipPath></defs></svg>
-                        <p>TRENDING ON MEDIUM</p>
+                        <p>TRENDING AT IIT BBS</p>
                       </div>
             
                     </div>
@@ -576,15 +577,17 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                        
                       <% } if(count==6){break}    } %>
                     
-            
+                </div>
+                </div>
+
                    
 
  
-              <div class="container">
+              <div class="container-fluid">
                   <hr class="px-5">
                 
-                  <div class="row mt-5">
-                      <div class="col-lg-8 col-12 ">
+                  <div class="row mt-5 mr-1 pr-1">
+                      <div class="col-lg-8 col-12 "">
                           <div class="row" id="articles">
 
                               <% var j =0; var count ; for( j=article.length-2;j>article.length-8;j--){ count = 0;
@@ -594,13 +597,13 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                                   count++ %>
 
                                   
-                                                      <div class="post-entry-2 d-flex">
+                                                      <div class="post-entry-2 d-flex" style="height:200px;">
                                                           <div class="thumbnail order-md-2" style="background-image: url('assets/img/gallery/<%=article[j].photo%>.jpg');"></div>
                                                           <div class="contents order-md-1 pl-0">
                                                             <a href="articles/<%=j%>" aria-hidden="true" tabindex="-1">
                                                             <h2><%=article[j].name%></h2>
                                                           </a>
-                                                          <p class="mb-3"><%= article[j].pure_text.split(" ").slice(0,70).join(" ")%> <span>....</span></p>
+                                                          <p class="mb-3"><%= article[j].pure_text.split(" ").slice(0,90).join(" ")%> <span>....</span></p>
                                                           <div class="post-meta">
                                                            
                                                             <!-- <% for (var i =0; i <=author.length-1;  i++ ) { 
@@ -641,8 +644,84 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                       </div>
                       <div class="col-lg-4 col-12" >
                         <div class="row  stick">
+
+
+
+
+                          <div id="qp_all3393124">
+                            <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+                            <STYLE>#qp_main3393124 .qp_btna:hover input {background:#00355F!important} #qp_all3393124 {max-width:815px; margin:0 auto;}</STYLE>
+                            <div id="qp_main3393124" fp='4B1444e4-104' results=0 style="border-radius:0px;margin:0 auto 10px auto;padding:0.8em;background-color:#FFF;font-family: 'Open Sans', sans-serif, Arial;color:#000;border: 1px solid #DBD9D9;max-width:815px;box-sizing:border-box;text-align:left">
+                            <div style="font-size:1em;background-color:#00355F;color:#FFF;font-family:'Open Sans', sans-serif, Arial">
+                            <div style="padding:0.8em;line-height:1.3em">Are you willing to go back to campus</div>
+                          </div>
+                          <form id="qp_form3393124" action="//www.poll-maker.com/results3393124x4B1444e4-104" method="post" target="_blank" style="display:inline;margin:0px;padding:0px">
+                            <div style="padding:0px">
+                              <input type=hidden name="qp_d3393124" value="44229.6771296270-44229.6771175029">
+                              <div style="display:block;color:#6B6B6B;font-family: 'Open Sans', sans-serif, Arial;font-size:1em;line-height:1.5;padding:13px 8px 11px;margin:10px 0px;clear:both" class="qp_a" onClick="var c=this.getElementsByTagName('INPUT')[0]; if((!event.target?event.srcElement:event.target).tagName!='INPUT'){c.checked=(c.type=='radio'?true:!c.checked)};var i=this.parentNode.parentNode.parentNode.getElementsByTagName('INPUT');for(var k=0;k!=i.length;k=k+1){i[k].parentNode.parentNode.setAttribute('sel',i[k].checked?1:0)}">
+                                <span style="display:block;padding-left:30px;cursor:inherit">
+                                <input style="float:left;width:20px;margin-left:-25px;margin-top:2px;padding:0px;height:20px;-webkit-appearance:radio;" name="qp_v3393124" type="radio" value="1" />Yes</span>
+                              </div>
+                              <div style="display:block;color:#6B6B6B;font-family: 'Open Sans', sans-serif, Arial;font-size:1em;line-height:1.5;padding:13px 8px 11px;margin:10px 0px;clear:both" class="qp_a" onClick="var c=this.getElementsByTagName('INPUT')[0]; if((!event.target?event.srcElement:event.target).tagName!='INPUT'){c.checked=(c.type=='radio'?true:!c.checked)};var i=this.parentNode.parentNode.parentNode.getElementsByTagName('INPUT');for(var k=0;k!=i.length;k=k+1){i[k].parentNode.parentNode.setAttribute('sel',i[k].checked?1:0)}">
+                                <span style="display:block;padding-left:30px;cursor:inherit">
+                                <input style="float:left;width:20px;margin-left:-25px;margin-top:2px;padding:0px;height:20px;-webkit-appearance:radio;" name="qp_v3393124" type="radio" value="2" />No</span>
+                              </div>
+                              <div style="display:block;color:#6B6B6B;font-family: 'Open Sans', sans-serif, Arial;font-size:1em;line-height:1.5;padding:13px 8px 11px;margin:10px 0px;clear:both" class="qp_a" onClick="var c=this.getElementsByTagName('INPUT')[0]; if((!event.target?event.srcElement:event.target).tagName!='INPUT'){c.checked=(c.type=='radio'?true:!c.checked)};var i=this.parentNode.parentNode.parentNode.getElementsByTagName('INPUT');for(var k=0;k!=i.length;k=k+1){i[k].parentNode.parentNode.setAttribute('sel',i[k].checked?1:0)}">
+                                <span style="display:block;padding-left:30px;cursor:inherit">
+                                <input style="float:left;width:20px;margin-left:-25px;margin-top:2px;padding:0px;height:20px;-webkit-appearance:radio;" name="qp_v3393124" type="radio" value="3" />May be</span>
+                              </div>
+                            </div>
+                            <div style="padding-left:0px;clear:both;text-align:left;margin:1em auto">
+                              <a style="display:inline-block;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;padding-right:5px;text-decoration:none" class="qp_btna" href="#">
+                                <input name="qp_b3393124" style="min-width:7.8em;padding:0.5em;background-color:#0B79D3;font-family: 'Open Sans', sans-serif, Arial;font-size:16px;color:#FFF;cursor:pointer;cursor:hand;border:0px;-webkit-appearance:none;border-radius:0px" type="submit" btype="v" value="Vote" />
+                              </a>
+                              <a style="display:inline-block;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;padding-left:5px;text-decoration:none" class="qp_btna" href="#">
+                                <input name="qp_b3393124" style="min-width:7.8em;padding:0.5em;background-color:#0B79D3;font-family: 'Open Sans', sans-serif, Arial;font-size:16px;color:#FFF;cursor:pointer;cursor:hand;border:0px;-webkit-appearance:none;border-radius:0px" type="submit" btype="r" value="Results" />
+                              </a>
+                            </div>
+                          </form>
+                          <div style="display:none">
+                            <div id="qp_rp3393124" style="font-size:14px;width:5ex;text-align:right;overflow:hidden;position:absolute;right:5px;height:1.5em;line-height:1.5em"></div>
+                            <div id="qp_rv3393124" style="font-size:14px;line-height:1.5em;width:0%;text-align:right;color:#FFF;box-sizing:border-box;padding-right:3px"></div>
+                            <div id="qp_rb3393124" style="font-size:14px;line-height:1.5em;color:#FFFFFF;display:block;padding-right:10px 5px"></div>
+                            <div id="qp_rva3393124" style="background:#006FB9;border-color:#006FB9"></div>
+                            <div id="qp_rvb3393124" style="background:#163463;border-color:#163463"></div>
+                            <div id="qp_rvc3393124" style="background:#5BCFFC;border-color:#1481AB"></div>
+                          </div>
+                        </div>
+                        <STYLE t=633>
+                          .cclass {display:inline-block!important;}
+                          .aclass {display:none!important;}
+                        </STYLE>
+                        <SCRIPT t=633>try{var notRandom = 'True';
+
+                        sys.init(0,function(){
+                            sys.themeFirstLoadCB.push(function() {
+                                var pfn = sys.dthemes.renderCB;
+                                sys.dthemes.renderCB = function(pfn){return function() {
+                                    pfn();
+                                    if(notRandom=='True') {
+                                        notRandom = '';
+                                        var parent = document.getElementById("poll-layouts");
+                                        for(var i = 0; i < parent.children.length; i++){
+                                            //parent.appendChild(parent.children[Math.random() * i | 0]);
+                                        }
+                                    }
+                                }}(pfn);
+                            });
+                        });
+                        }catch(e){console.log('error',e)}</SCRIPT>
+                        <STYLE t=653>div#headerflat {
+                            display: none;
+                        }</STYLE>
+                      </div>
+                      <script src="//scripts.poll-maker.com/3012/scpolls.js" language="javascript"></script>
+
+                        </div>
+                    
+                   
                            
-                                    <div class="col-12">
+                                    <!-- <div class="col-12">
                                         <div class="row" style="font-size: 14px;" id="stickylinks">
                                            
                                        
@@ -667,10 +746,35 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                                        <center><button>Send Message</button></center>
                                        
                                       </form>
-                                    </div>
-                                </div>
-                            </div>
-                           
+                                    </div> -->
+                                    <div class="blog_right_sidebar">
+                            
+                            
+                                      <aside class="single_sidebar_widget popular_post_widget">
+                                          <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
+                                              <% for(var i=article.length-1; i>article.length-6; i--){%>
+                                          <div class="media post_item">
+                                              <img src="assets/img/gallery/<%= article[i].photo %>.jpg" style="width:60px; height:50px;" alt="post">
+                                              <div class="media-body">
+                                                  <a href="articles/<%=i%>">
+                                                      <h3 style="color: #2d2d2d;"><%= article[i].name %></h3>
+                                                  </a>
+                                                  <p><%= article[i].date %></p>
+                                              </div>
+                                          </div>
+                                              <% } %>
+                                          
+                                      </aside>
+                                      
+          
+                                      <aside class="single_sidebar_widget instagram_feeds">
+                                          <h4 class="widget_title" style="color: #2d2d2d;">Instagram Feeds</h4>
+                                          
+                                      </aside>
+                                      
+                                  </div>
+
+                                 
                 
                 
                         </div>
