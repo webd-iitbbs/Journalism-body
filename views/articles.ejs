@@ -146,6 +146,93 @@
   h2{
       font-size: 70px;
   }
+
+  
+.search-container {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+}
+
+.search-container { margin-top: 10px }
+
+input {
+    font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #555860;
+}
+
+
+.search-container input {
+    height: 26px;
+    width: 100%;
+    padding: 0 12px 0 25px;
+    background: white url("https://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 8px 6px no-repeat;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #a8acbc #babdcc #c0c3d2;
+    border-radius: 13px;
+
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #66b1ee;
+
+}
+
+
+.search-input .results {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cbcfe2 #c8cee7 #c4c7d7;
+    border-radius: 3px;
+    background-color: #fdfdfd;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdfdfd), color-stop(100%, #eceef4));
+    background-image: -webkit-linear-gradient(top, #fdfdfd, #eceef4);
+    background-image: -moz-linear-gradient(top, #fdfdfd, #eceef4);
+    background-image: -ms-linear-gradient(top, #fdfdfd, #eceef4);
+    background-image: -o-linear-gradient(top, #fdfdfd, #eceef4);
+    background-image: linear-gradient(top, #fdfdfd, #eceef4);
+}
+
+
+:-moz-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+::-webkit-input-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+.lt-ie9 .search input { line-height: 26px }
+
+.suggestions {
+  width: 300px;
+  background: #fff;
+  z-index: 12;
+  border-top: 2px solid #999;
+  margin-top: 0;
+}
+.suggestions > div {
+  text-align: left;
+  font-size: 18px;
+  color: #000000;
+  border-top: 1px solid #fff;
+  cursor: pointer;
+}
+
   </style>
 </head>
 
@@ -174,7 +261,7 @@
                         </div>
                         <% for(var i=1;i<article.length;i++){%>
                         <div class="carousel-item">
-                            <a href="articles/<%=i%>" style="color:#fff"><%= article[i].name %></a>
+                            <a href="articles/<%=i%>" style="color:#fff; max-width: 400px; overflow: hidden;"><%= article[i].name %></a>
                         </div>
                         <% } %>
                     </div>
@@ -182,6 +269,18 @@
             </li>
         </ul>
       </nav>
+
+      <nav id="gateway" class="menu-gateway-nav-container">
+        <ul id="menu-gateway-nav" class="menu">
+          <div class="search-container">
+            
+            <input class="search-input" type="text" placeholder="Search here..." />
+           
+            <div class="suggestions">
+            </div>
+          </div>
+        </ul>
+      </nav> 
       
       <nav id="gateway" class="menu-gateway-nav-container">
         <ul id="menu-gateway-nav" class="menu">
@@ -447,6 +546,36 @@ function getDate()
             autoplaySpeed: 1500,
             });
         });
-	</script>
+    </script>
+     <script>
+     
+        const searchInput = document.querySelector('.search-input');
+        const suggestionsPanel = document.querySelector('.suggestions');
+        var articleTitle=[];
+              <% for(var j=0;j<article.length ;j++) { %>
+             
+                articleTitle.push('{"title":"<%= article[j].name %>","id":"<%= article[j].id %>"}');
+             <% } %>
+             console.log(JSON.parse(articleTitle[0]).title);
+        searchInput.addEventListener('keyup', function() {
+        const input = searchInput.value;
+        suggestionsPanel.innerHTML = '';
+        const suggestions = articleTitle.filter((art)=> {
+         var obj=JSON.parse(art);
+         const reg=RegExp(input, "gi");
+          return obj.title.match(reg);
+        });
+        console.log(suggestions);
+        suggestions.forEach((suggested)=> {
+          var obj=JSON.parse(suggested);
+          const div = document.createElement('div');
+          div.innerHTML = `<a style="color:black; z-index:100; width:100%" href=articles/${obj.id}>${obj.title}<a>`;
+          suggestionsPanel.appendChild(div);
+        });
+        if (input === '') {
+          suggestionsPanel.innerHTML = 'No results';  
+        }
+        });
+           </script> 
     </body>
 </html>

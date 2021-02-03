@@ -146,10 +146,11 @@ margin-bottom: 30px;
 .post-entry-2 .thumbnail{
 background-size: cover;
 background-position: center;
-width: 40%;
+width: 36%;
+height:auto;
 }
 .post-entry-2 .contents{
-width: 60%;
+width: 64%;
 }
 .post-entry-2 h2{
 font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -383,18 +384,16 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                                               <div class="post-entry-2 d-flex">
                                                   
                                                 
-                                                  <div class="contents" style="height:95px;">
+                                                  <div class="contents" style="height:95px; ">
                     
                                                       <h2><%=article[j].name%></h2>
                                                     
                                                       <br>
                                                       <% for(var k=0;k<author.length;k++){
-                                                        console.log("HI");
-                                                        console.log(article[j].author_id);
-                                                       console.log(k);
+                                                        
                  if(article[j].author_id===author[k].id) {
                    console.log(k); %>
-                   <span class="d-block"><%=author[k].name%><span class="mx-1">•</span><%=article[j].category%></span>
+                   <span class="d-block" style="text-transform: capitalize;"><%=author[k].name%><span class="mx-1">•</span><%=article[j].category%></span>
                <% break}}%>
                                                       
                                                       </div>
@@ -527,7 +526,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                                     
                                   count++ %>
                                   
-                                                      <div class="post-entry-2 d-flex" style="height:200px;">
+                                                      <div class="post-entry-2 d-flex" style="height:auto;">
                                                           <div class="thumbnail order-md-2" style="background-image: url('assets/img/gallery/<%=article[j].photo%>.jpg');"></div>
                                                           <div class="contents order-md-1 pl-0">
                                                             <a href="articles/<%=j%>" aria-hidden="true" tabindex="-1">

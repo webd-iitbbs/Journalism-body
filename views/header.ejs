@@ -46,26 +46,13 @@ input {
     border-style: solid;
     border-color: #a8acbc #babdcc #c0c3d2;
     border-radius: 13px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
-    -moz-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
-    -ms-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
-    -o-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
-    box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+
 }
 
 .search-container input:focus {
     outline: none;
     border-color: #66b1ee;
-    -webkit-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
-    -moz-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
-    -ms-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
-    -o-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
-    box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+
 }
 
 
@@ -89,11 +76,6 @@ input {
     background-image: -ms-linear-gradient(top, #fdfdfd, #eceef4);
     background-image: -o-linear-gradient(top, #fdfdfd, #eceef4);
     background-image: linear-gradient(top, #fdfdfd, #eceef4);
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -110,7 +92,7 @@ input {
 .lt-ie9 .search input { line-height: 26px }
 
 .suggestions {
-  width: 200px;
+  width: 300px;
   background: #fff;
   z-index: 12;
   border-top: 2px solid #999;
@@ -123,6 +105,7 @@ input {
   border-top: 1px solid #fff;
   cursor: pointer;
 }
+
   </style>
 </head>
 
@@ -151,7 +134,7 @@ input {
                         </div>
                         <% for(var i=1;i<article.length;i++){%>
                         <div class="carousel-item">
-                            <a href="articles/<%=i%>" style="color:#fff"><%= article[i].name %></a>
+                            <a href="articles/<%=i%>" style="color:#fff; max-width: 400px; overflow: hidden;"><%= article[i].name %></a>
                         </div>
                         <% } %>
                     </div>
@@ -208,7 +191,7 @@ input {
             <!-- <p id="splash--scroller"><a href="#main-content" data-ga-action="Splash screen scroller">Explore IIT BBS</a></p> -->
 
             <picture aria-hidden="true" tabindex="-1">
-                <img class="img-fluid" role="presentation" alt="" src="assets/img/gallery/banner(2).jpg">
+                <img class="img-fluid" role="presentation" alt="" src="assets/img/gallery/js.png">
             </picture>
     
         </section>
@@ -236,11 +219,11 @@ console.log(suggestions);
 suggestions.forEach((suggested)=> {
   var obj=JSON.parse(suggested);
   const div = document.createElement('div');
-  div.innerHTML = `<a style="color:black; z-index:100;" href=articles/${obj.id}>${obj.title}<a>`;
+  div.innerHTML = `<a style="color:black; z-index:100; width:100%" href=articles/${obj.id}>${obj.title}<a>`;
   suggestionsPanel.appendChild(div);
 });
 if (input === '') {
-  suggestionsPanel.innerHTML = '';  
+  suggestionsPanel.innerHTML = 'No results';  
 }
 });
    </script> 
