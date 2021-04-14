@@ -6,6 +6,8 @@ const passport = require('passport');
 const session = require('cookie-session');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
+
+
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -44,7 +46,7 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
   passport.use(new GoogleStrategy({
       clientID        : '986762757676-2pq35rlfhh2t1u17gcgliquuuq6vgfn9.apps.googleusercontent.com',
       clientSecret    : '3Os8QiwahxzJsJNk7VhrFB4F',
-      callbackURL     : 'https://journalismbody-iitbbs.herokuapp.com/auth/google/callback',
+      callbackURL     : 'http://localhost:3000/auth/google/callback',
       userProfileURL  : 'https://www.googleapis.com/oauth2/v3/userinfo'
     },
     function(token, refreshToken, profile, done) {
@@ -81,6 +83,7 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     }).catch(error=>console.log(error+"2"));
    
   });
+  
 
   app.get('/studentlife', (req,res)=>{
     db.collection('article').find().toArray()
@@ -173,32 +176,31 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
  
   })
 
-  app.get('/auth/google', 
-    passport.authenticate('google', { scope : ['profile', 'email'] })
-  );
-
-  app.get('/auth/google/callback', 
-      passport.authenticate('google', {
-          failureRedirect: '/auth/google'
-      }) ,
-        (req, res) => {
-            console.log("login done");
-            res.redirect('/');
-        }
-  );
   
-  app.get('/logout', (req, res) => {
-    if (req.session) {
-    req.session.destroy(function (err) {
-      if (err) {
-        return next(err);
-      } else {
-        return res.redirect('/');
-      }
-    });
-  }
-  })
 
+  app.get('/auth/google', 
+  passport.authenticate('google', { scope : ['profile', 'email'] })
+);
+
+app.get('/auth/google/callback', 
+    passport.authenticate('google', {
+        failureRedirect: '/auth/google'
+    }) ,
+      (req, res) => {
+          console.log("login done");
+          res.redirect('/');
+      }
+);
+  
+ 
+  
+  app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
+
+ 
+  
   // //to add an article
   app.get('/articles',(req,res)=>{
     //     db.collection('article').find().toArray()
