@@ -244,6 +244,11 @@ margin-left: 20px;
   display: none;
 }
 }
+@media only screen and (max-width: 600px){
+  #articles{
+    padding-left: 20px;
+  }
+}
 @media only screen and (min-width: 900px){
 #articles .contents h2{
 letter-spacing: 0px;
@@ -343,12 +348,12 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                                   
                                       <a href="articles/<%=j%>" aria-hidden="true" tabindex="-1">
                                           <div class="post-entry-1">
-                                              <img src="assets/img/gallery/<%=article[article.length-1].photo%>.jpg" width="100%" height="auto">
+                                              <img src="assets/img/gallery/<%=article[article.length-6].photo%>.jpg" width="100%" height="auto">
                                             
                                             
-                                              <h2><%=article[j].name%></h2>
+                                              <h2><%=article[article.length-6].name%></h2>
                                               
-                                              <p><%= article[j].pure_text.split(" ").slice(0,30).join(" ")%>...</p>
+                                              <p><%= article[article.length-6].pure_text.split(" ").slice(0,30).join(" ")%>...</p>
                                               <% for(var k=0;k<author.length;k++){
                                                 console.log("HI");
                                                 console.log(article[j].author_id);
@@ -680,7 +685,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                             
                                       <aside class="single_sidebar_widget popular_post_widget">
                                           <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
-                                              <% for(var i=article.length-1; i>article.length-6; i--){%>
+                                              <% for(var i=article.length-2; i>article.length-7; i--){%>
                                           <div class="media post_item">
                                               <img src="assets/img/gallery/<%= article[i].photo %>.jpg" style="width:60px; height:50px;" alt="post">
                                               <div class="media-body">
@@ -725,3 +730,4 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
 <script src="/public/assets/js/header.js"></script>
 
 <%- include('footer') -%>
+
