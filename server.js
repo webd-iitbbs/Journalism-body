@@ -184,7 +184,8 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
 
 app.get('/auth/google/callback', 
     passport.authenticate('google', {
-        failureRedirect: '/auth/google'
+        successRedirect: 'back',
+        failureRedirect: 'back'
     }) ,
       (req, res) => {
           console.log("login done");
