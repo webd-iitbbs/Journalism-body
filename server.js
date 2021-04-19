@@ -182,19 +182,15 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
   passport.authenticate('google', { scope : ['profile', 'email'] })
 );
 
-app.get('/auth/google/callback', (req,res,next) =>{
-    if ( req.get('Referrer').includes('google.com') === false ) {
-      req.session["redirect_override"] = req.get('Referrer');
-      console.log('Referrer set to:', req.get('Referrer'));
-    }
-    next();
-  },
-    passport.authenticate('google') ,
-    (req, res) => {
-      console.log('login done')
-      res.redirect(req.session["redirect_override"] || "/");
-      req.session["redirect_override"] = "";
-    }
+app.get('/auth/google/callback', 
+    passport.authenticate('google', {
+        successRedirect: 'back',
+        failureRedirect: '/'
+    }) ,
+      (req, res) => {
+          console.log("login done");
+          res.redirect('/');
+      }
 );
   
  
