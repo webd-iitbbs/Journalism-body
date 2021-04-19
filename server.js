@@ -178,20 +178,22 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
 
   
 
-  app.get('/auth/google', 
-  passport.authenticate('google', { scope : ['profile', 'email'] })
-);
+  app.get('/auth/google', (req,res,next)=>{
+      req.session.referrer = req.header('Referer');
+      next();
+    },
+    passport.authenticate('google', { scope : ['profile', 'email'] })
+  );
 
-app.get('/auth/google/callback', 
-    passport.authenticate('google', {
-        successRedirect: 'back',
-        failureRedirect: '/'
-    }) ,
-      (req, res) => {
-          console.log("login done");
-          res.redirect('/');
-      }
-);
+  app.get('/auth/google/callback',
+      passport.authenticate('google') ,
+        (req, res) => {
+            console.log("login done");
+            console.log(req.session.referrer)
+            res.redirect(req.session.referrer);
+            delete req.session.referrer;
+        }
+  );
   
  
   
