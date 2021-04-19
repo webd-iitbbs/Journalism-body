@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
+ <style>
 .footer-area .footer-top .single-footer-caption .footer-tittle ul li a {
     color: #bbbcbc;
     font-weight: 500;
@@ -235,80 +235,81 @@ input {
 
   </style>
 </head>
-
 <body class="home page-template page-template-homepage page-template-homepage-php page page-id-64 splash-parallax normal-home">
-  <header >
-    <section id="brand-bar" data-ga-category="Brand bar" data-ga-action="Gateway nav">
-      <a href="/" class="su-brand" rel="home" id="header--wordmark" data-ga-action="Wordmark" style="margin:0; position:absolute; left:3em; float:left;">
-        IIT Bhubaneswar
-      </a>
-      <nav role="navigation" id="gateway" class="menu-gateway-nav-container" style="display:block; height:100%; background-color:#820000; float:left; position:absolute; top:0em; left:18em;">
-        <ul id="menu-gateway-nav" class="menu">
-            <li class="menu-item menu-item-type-post_type menu-item-object-page" style="height:100%; margin-top:0.8em; padding-right:10px; padding-left:10px;">
-                <div style="color:#fff; ">
-                    Recent Articles <i class="fa fa-bullhorn"></i>
-                </div>
-            </li>
-        </ul>
-      </nav>
-      <nav role="navigation" id="gateway" class="menu-gateway-nav-container" style=" float:left; position:absolute; left:26.3em;">
-        <ul id="menu-gateway-nav" class="menu">
-            <li class="menu-item menu-item-type-post_type menu-item-object-page" style="margin-top:0.3em;">
-                <div class="carousel" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <a href="/articles/0" style="color:#fff"><%= article[0].name %></a>
-                        </div>
-                        <% for(var i=1;i<article.length;i++){%>
-                        <div class="carousel-item">
-                            <a href="/articles/<%=i%>" style="color:#fff; max-width: 500px; overflow: hidden;"><%= article[i].name %></a>
-                        </div>
-                        <% } %>
-                    </div>
-                </div>
-            </li>
-        </ul>
-      </nav>
-
-      <nav id="gateway" class="menu-gateway-nav-container">
-        <ul id="menu-gateway-nav" class="menu">
-          <div class="search-container">
-            
-            <input class="search-input" type="text" placeholder="Search here..." />
-           
-            <div class="suggestions">
+    <header >
+      <section id="brand-bar" data-ga-category="Brand bar" data-ga-action="Gateway nav">
+        <a href="/" class="su-brand" rel="home" id="header--wordmark" data-ga-action="Wordmark" style="margin:0; position:absolute; left:3em; float:left;">
+          IIT Bhubaneswar
+        </a>
+        <nav role="navigation" id="gateway" class="menu-gateway-nav-container d-none d-md-block" style="display:block; height:100%; background-color:#820000; float:left; position:absolute; top:0em; left:18em;">
+          <ul id="menu-gateway-nav" class="menu">
+              <li class="menu-item menu-item-type-post_type menu-item-object-page" style="height:100%; margin-top:0.8em; padding-right:10px; padding-left:10px;">
+                  <div style="color:#fff; ">
+                      Recent Articles <i class="fa fa-bullhorn"></i>
+                  </div>
+              </li>
+          </ul>
+        </nav>
+        <nav role="navigation" id="gateway" class="menu-gateway-nav-container d-none d-md-block" style=" float:left; position:absolute; left:26.3em;">
+          <ul id="menu-gateway-nav" class="menu">
+              <li class="menu-item menu-item-type-post_type menu-item-object-page" style="margin-top:0.3em;">
+                  <div class="carousel" data-ride="carousel">
+                      <div class="carousel-inner">
+                          <div class="carousel-item active">
+                              <a href="/articles/0" style="color:#fff"><%= article[0].name %></a>
+                          </div>
+                          <% for(var i=1;i<article.length;i++){%>
+                          <div class="carousel-item">
+                              <a href="/articles/<%=i%>" style="color:#fff; max-width: 500px; overflow: hidden;"><%= article[i].name %></a>
+                          </div>
+                          <% } %>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+        </nav>
+        
+        <nav id="gateway" class="menu-gateway-nav-container">
+          <ul id="menu-gateway-nav" class="menu">
+            <div class="search-container">
+              
+              <input class="search-input" type="text" placeholder="Search here..." />
+             
+              <div class="suggestions">
+              </div>
             </div>
-          </div>
-        </ul>
+          </ul>
+        </nav> 
+  
+        <nav id="gateway" class="menu-gateway-nav-container d-none d-md-block">
+          <ul id="menu-gateway-nav" class="menu">
+              <% if (!isLogged) { %>
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/auth/google"><i class="fa fa-user"></i>&nbsp; Login</a></li>
+              <% } else { %>
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page"><a><i class="fa fa-user"></i>&nbsp;<%=user.name %>&nbsp;</a></li>
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/logout"><i class="fa fa-sign-out"></i>&nbsp; Logout</a></li>
+              <%}%>
+          </ul>
+        </nav>  
+        <button id="menu-toggle" aria-controls="primary-menu" aria-expanded="false" data-ga-action="Menu toggle">Menu</button>
+      </section>
+      <div id="menu-overlay" aria-hidden="true" role="presentation"></div>
+      <nav id="site-navigation" role="navigation" aria-label="Primary site navigation" data-ga-category="Top nav">
+        <div class="menu-primary-nav-container">
+          <ul id="primary-menu" class="menu">
+              <li id="menu-item-2297" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/studentlife">Student Life</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/career">Career</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/alumni">Alumni</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/scitech">Sci Tech</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/cult">Cult</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/sports">Sports</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/aboutus">About</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
       </nav> 
-      
-      <nav id="gateway" class="menu-gateway-nav-container">
-        <ul id="menu-gateway-nav" class="menu">
-            <% if (!isLogged) { %>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/auth/google"><i class="fa fa-user"></i>&nbsp; Login</a></li>
-            <% } else { %>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a><i class="fa fa-user"></i>&nbsp;<%=user.name %>&nbsp;</a></li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/logout"><i class="fa fa-sign-out"></i>&nbsp; Logout</a></li>
-            <%}%>
-        </ul>
-      </nav>  
-    </section>
-    <div id="menu-overlay" aria-hidden="true" role="presentation"></div>
-    <nav id="site-navigation" role="navigation" data-ga-category="Top nav">
-      <div class="menu-primary-nav-container">
-        <ul id="primary-menu" class="menu">
-            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/studentlife">Student Life</a></li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/career">Career</a></li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/alumni">Alumni</a></li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/scitech">Sci Tech</a></li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/cult">Cult</a></li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/sports">Sports</a></li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/aboutus">About</a></li>
-            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav> 
+  
 
     <!-- <section class="panel-collection" data-modular-content-collection>
 
