@@ -113,7 +113,6 @@ margin: 0;
 padding-top: 10px;  
 }
 .post-entry-1 h2{
-  font-family: 'Montserrat', sans-serif;
   max-height: 56px;
 font-size: 22px;
 font-weight: 700;
@@ -155,13 +154,13 @@ height:auto;
 width: 64%;
 }
 .post-entry-2 h2{
-  font-family: 'Montserrat', sans-serif;
 font-size: 18px;
 color: rgba(41, 41, 41, 1);
 font-weight: 700;
 line-height: 20px;
 margin: 0;
 padding-top: 10px;
+padding-right: 5px;
 }
 .why-us span{
 font-family: 'Open Sans', sans-serif;
@@ -255,7 +254,7 @@ margin-left: 20px;
 #articles .contents h2{
 letter-spacing: 0px;
 max-height: 40px;
-line-height: 20px;
+line-height: 25px;
 font-weight: 700;
 color: rgba(41, 41, 41, 1);
 font-family: 'Montserrat', sans-serif;
@@ -267,7 +266,7 @@ font-size: 18px;
 font-size: 0.8em;
 line-height: 20px;
 margin: 0;
-padding-top: 17px;
+padding-top: 20px;
 }
 #articles .post-meta{
 font-size: 14px;
@@ -392,7 +391,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                                                 
                                                   <div class="contents" style="height:95px; ">
                     
-                                                      <h2><%=article[j].name%></h2>
+                                                      <h2><%=article[j].name.split(" ").slice(0,10).join(" ")%></h2>
                                                     
                                                       <br>
                                                       <% for(var k=0;k<author.length;k++){
