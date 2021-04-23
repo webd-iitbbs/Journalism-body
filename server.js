@@ -202,7 +202,25 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     res.redirect('/');
   });
 
- 
+  app.get('/contact', (req,res)=>{
+    db.collection('author').find().toArray() 
+    .then(result3=>{
+      db.collection('article').find().toArray()
+      .then(result2=>{res.render('contact',{article:result2, author:result3, user: req.user, isLogged : req.isAuthenticated()})})
+      .catch(error=>console.log(error+"1"));
+    }).catch(error=>console.log(error+"2"));
+   
+  });
+
+  app.get('/aboutus', (req,res)=>{
+    db.collection('author').find().toArray() 
+    .then(result3=>{
+      db.collection('article').find().toArray()
+      .then(result2=>{res.render('about',{article:result2, author:result3, user: req.user, isLogged : req.isAuthenticated()})})
+      .catch(error=>console.log(error+"1"));
+    }).catch(error=>console.log(error+"2"));
+   
+  });
   
   // //to add an article
   app.get('/articles',(req,res)=>{
