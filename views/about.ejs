@@ -1,0 +1,107 @@
+<%- include ('header') -%>
+<style>
+
+
+
+.section-bg {
+  background-color: #f7f7f7;
+}
+
+.section-title {
+  text-align: center;
+  
+}
+
+.section-title h2 {
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #b1040e;
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+#about p{
+    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    color: black;
+}
+
+#section-bg li{
+    font-size: 20px;
+}
+.about-us .quotes{
+    text-align: center;
+}
+
+
+
+
+
+</style>
+
+<main id="main" id="about">
+    <section id="about-us" class="about-us">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title" data-aos="fade-up">
+            <h2>ABOUT US</h2>
+        </div>
+           
+            <div class="col-lg-12">
+              <p>
+                Journalism must speak and must do so immediately, while the echoes of wonder, the claims of triumph, and signs of trouble are still lingering in the air. We as a Student-run Institute Journalism body aim to do exactly this: responsible and unadulterated reporting by establishing and preserving an atmosphere of free discussion and intellectual exploration within the institute community. The body shall provide a forum for students, faculties, alumni and other members of the Institute community to voice out their opinions on various topics adhering to the guidelines laid by the body. We shall be responsible for reporting on-campus events and activities and bringing out content on a wide range of issues relevant to the IIT Bhubaneswar community.
+              </p>
+             <br>
+             <div class="quotes">
+              <p class="fst-italic">
+               <strong><i>"Every member is free to express his/her views/opinions on every issue maintaining the decorum of the Body and bearing in mind the rules laid down by the Body."</i></strong>
+              </p>
+            </div>
+            </div>
+       
+  
+        
+      </section>
+
+      <div class="container" id="section-bg">
+
+        <div class="section-title">
+            <br>
+          <h2>Our <strong>Team</strong></h2>
+          
+        </div>
+        <ul>
+            <li>
+                <strong>ADVISORY BOARD:</strong>
+            </li>
+            <p>
+                The board shall be responsible for the general functioning of the body and shall review all the institute publications and approve ideas suggested by the members.
+            </p>
+            <p><u style="color: black;">MEMBERS OF ADVISORY BOARD:</u></p> <p>   Faculty Advisor nominated by the Director, President of Student’s Gymkhana, Vice-President of Student’s Gymkhana, Chief Editor.</p>
+            <li><strong>CHIEF EDITOR:</strong></li>
+            <p>S/He shall be responsible for any content released by the Body, final decisions regarding the topics is taken care of by him/her.</p>
+            <li><strong>DESIGN COORDINATOR:</strong></li>
+            <p>S/He shall be responsible for deciding and setting the layout of the content published, designing of posters and other design roles.</p>
+            <li><strong>WEB COORDINATOR:</strong></li>
+            <p>S/He shall be responsible for designing and maintaining the journalism body’s website and other online portals. In addition, he/she shall be responsible for carrying out the online publicity.</p>
+        </ul>
+        <br>
+        </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> 
+<script src="/public/assets/js/header.js"></script>
+
+<%- include('footer') -%>
