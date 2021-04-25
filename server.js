@@ -179,7 +179,7 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
   
 
   app.get('/auth/google', (req,res,next)=>{
-      req.session.referrer = req.header('Referer');
+      req.session.referrer = req.header('Host');
       next();
     },
     passport.authenticate('google', { scope : ['profile', 'email'] })
