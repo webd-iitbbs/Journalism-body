@@ -66,6 +66,62 @@
   padding-bottom: 10px;
   margin: 1rem;
 }
+
+.register .nav-tabs .nav-link:hover{
+                border: none;
+            }
+           
+            .form-new{
+                margin-right: 22%;
+                margin-left: 20%;
+            }
+            .register-heading{
+                margin-left: 21%;
+                margin-bottom: 10%;
+                color: #e9ecef;
+            }
+            .register-heading h1{
+                margin-left: 21%;
+                margin-bottom: 10%;
+                color: #e9ecef;
+            }
+            .register{
+                
+                margin-top: 3%;
+                padding: 3%;
+                border-radius: 2.5rem;
+            }
+            .btnSubmit
+            {
+                width: 50%;
+                border-radius: 1rem;
+                padding: 1.5%;
+                color: #fff;
+                background: #b1040e;
+                border: none;
+                cursor: pointer;
+                margin-right: 6%;
+                color: rgb(246, 246, 252);
+                margin-top: 4%;
+                margin-top: 30px;
+            }
+            .write .form-group
+            {
+              border-radius: 0;
+              box-shadow: none;
+              font-size: 14px;
+              border-radius: 4px;
+              height: 44px;
+              width: 100%;
+            }
+            .write .form-control
+            {
+              min-height: 30px;
+            }
+            .write #message
+            {
+              height: 100px;
+            }
 </style>
 
 <main id="main">
@@ -82,11 +138,11 @@
                    
                      <div class="card" style="width: 25rem;">
                        <div class="card-body">
-                         <h5 class="card-title">NIRANJAN S</h5>
+                         <h5 class="card-title">Swapnil More</h5>
                          <h6 class="card-subtitle mb-2 text-muted">Vice President Students' Gymkhana</h6>
                          <p class="card-text"></p>
                         
-                       <div class="row"><i class="fa fa-phone"></i><p>8838506825</p></div>
+                       <div class="row"><i class="fa fa-phone"></i><p>9549214948</p></div>
                        <div class="row"><i class="fa fa-envelope"></i><p>vpresident.sg@iitbbs.ac.in</p></div>
                           
                         
@@ -129,8 +185,57 @@
 
      <br>  
 
+     <div class="container register">
+      <div class="row">
+          <div class="col-md-12">
+                  <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="section-title2">
+                      <br>
+                    <h2><strong>Write To Us</strong></h2>
+                    
+                  </div>
+                      <div class="row register-form">
+                          <div class="col-md-12">
+                              <form method="post" autocomplete="off" name="google-sheet" class="write">
+                                  <div class="form-group">
+                                      <input type="text" name="Name" class="form-control" placeholder="Your Name *" value="" required=""/>
+                                  </div>
+                                  <div class="form-group">
+                                      <input type="text" name="Email" class="form-control" placeholder="Your Email *" value="" required=""/>
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" name="Message" class="form-control" id="message" placeholder="Your Message/Feedback *" value="" required=""/>
+                                </div>
+                                <br>
+                                  <div class="form-group">
+                                      <input type="submit" name="submit" class="btnSubmit btn-block" value="SUBMIT" />
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+          </div>
+      </div>
+  </div>
+  <br>
+
           
 </main>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzm6UvdEakof_SreE1gehc8-Pgyvq_f-C7-8Nz32V6cNxWFVu7I5KQf1EwYw12iFHlCaw/exec'
+  const form = document.forms['google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> 
 <script src="/public/assets/js/header.js"></script>
