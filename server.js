@@ -44,10 +44,10 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
   });
 
   passport.use(new GoogleStrategy({
-      clientID        : '986762757676-2pq35rlfhh2t1u17gcgliquuuq6vgfn9.apps.googleusercontent.com',
-      clientSecret    : '3Os8QiwahxzJsJNk7VhrFB4F',
-      callbackURL     : 'https://journalismbody-iitbbs.herokuapp.com/auth/google/callback',
-      userProfileURL  : 'https://www.googleapis.com/oauth2/v3/userinfo'
+    clientID        : '986762757676-2pq35rlfhh2t1u17gcgliquuuq6vgfn9.apps.googleusercontent.com',
+    clientSecret    : '3Os8QiwahxzJsJNk7VhrFB4F',
+    callbackURL     : 'https://journalismbody-iitbbs.herokuapp.com/auth/google/callback',
+    userProfileURL  : 'https://www.googleapis.com/oauth2/v3/userinfo'
     },
     function(token, refreshToken, profile, done) {
       console.log('HI');
@@ -178,22 +178,13 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
 
   
 
-  app.get('/auth/google', (req,res,next)=>{
-      req.session.referrer = req.header('Host');
-      next();
-    },
-    passport.authenticate('google', { scope : ['profile', 'email'] })
-  );
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-  app.get('/auth/google/callback',
-      passport.authenticate('google') ,
-        (req, res) => {
-            console.log("login done");
-            console.log(req.session.referrer)
-            res.redirect(req.session.referrer);
-            delete req.session.referrer;
-        }
-  );
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google' }),
+  function(req, res) {
+    res.redirect('/');
+  }
+);
   
  
   
