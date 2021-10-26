@@ -18,7 +18,6 @@ overflow: scroll;
 ::-webkit-scrollbar-thumb{
     background: grey;
 }
-
 a {
 color: rgba(117, 117, 117, 1);
 text-decoration: none;
@@ -36,7 +35,11 @@ font-family: "Roboto", sans-serif;
 /*--------------------------------------------------------------
 # Our Services
 --------------------------------------------------------------*/
-.services .Announcements {
+#table
+{
+  padding-left: 15px;
+}
+.Announcements {
 position: relative;
 overflow: hidden;
 background: white;
@@ -45,18 +48,18 @@ border: 1px solid #fff;
 border-radius: 10px;
 margin-top: 40px;
 }
-.services .Announcements .title{
+.Announcements .title{
 padding-top: 15px;
 padding-right: 15px;
 }
-.services .Announcements .description{
+.Announcements .description{
   font-family: 'Open Sans', sans-serif;
 font-size: 0.9em;
 padding-top: 5px;
 line-height: 28px;
 color: black;
 }
-.services .Announcements ul{
+.Announcements ul{
   list-style-type: circle;
 }
 @media only screen and (min-width: 772px){
@@ -329,6 +332,7 @@ padding-right: 20px;
 }
 .in-quest{
   padding-top: 10px;
+  margin-right: 15px;
 }
 .form b{color: black;}
 .form a{text-decoration: none; color: black;}
@@ -448,45 +452,25 @@ padding-right: 20px;
                
               
                 
-                <div class="col-md-6 col-lg-4" id="table">
+                <div class="col-lg-4 col-12" id="table">
                   <div class="line">
                   <hr class="px-5">
                 </div>
-                  <div class="Announcements">
-                    <div class="row justify-content-center">
-                     
-                    <h4 class="title">Announcements</h4>
-                    <i class="fa fa-bullhorn fa-3x" aria-hidden="true"></i>
+                <div class="in-quest">
+
+                  <form class="form" method="post" autocomplete="off" name="google-sheet">
+                    <b>Connect Episode 4</b>
+                    <br><b>In Conversation with <a href="https://www.iitbbs.ac.in/profile.php/pv-satyam/">Prof P.V. Satyam, Dean- Student Affairs.</a></b>
+                    <p>Panacea in collaboration with the Oracle would be releasing their Fourth Episode of Connect Interview Series.</p>
+                    <p>For this edition, the newly appointed Dean- Student Affairs , Professor P. V. Satyam, from School of Basic Sciences, would be gracing us with his presence. 
+                      Prof Satyam has encouraged students to put forth their queries, if any, that are to be answered by him during this interview.</p>
+
                   
-                    </div>
-                    <br>
-                    <ul>
-                      <li>
-                    <p class="description">
-                      IIT Bhubaneswar holds Pulse Polio Drive for In-Campus Children as a Part of National Polio Immunisation Programme 
-                    </p>
-                     </li>
-                     <li>
-                      <p class="description">
-                       4th Years were asked to return to campus by Jan 28
-                      </p>
-                       </li>
-                       <li>
-                        <p class="description">
-                          Socities started to conduct workshops and induct Freshers amidst the pandemic
-                        </p>
-                         </li>
-                         <li>
-                          <p class="description">
-                            IIT Bhubaneswar organizes 'FIT INDIA CYCLOTHON' as part of Fit India Mission
-                          </p>
-                           </li>
-                           <li>
-                            <p class="description">
-                              Fest heads have decided to conduct their fests in online mode
-                            </p>
-                             </li>
-                    </ul>
+                    <input type="text" name="Question" class="form-control" placeholder="Type your Question here...." value="" required=""/>
+                    <center><input type="submit" name="submit" class="button" value="SUBMIT" /></center>
+                   
+                  </form>
+                </div>
                   </div>
                 </div>
       
@@ -600,20 +584,41 @@ padding-right: 20px;
                           </div>
                       </div>
                       <div class="col-lg-4 col-12" >
-                        <div class="in-quest">
-
-                          <form class="form" method="post" autocomplete="off" name="google-sheet">
-                            <b>Connect Episode 4</b>
-                            <br><b>In Conversation with <a href="https://www.iitbbs.ac.in/profile.php/pv-satyam/">Prof P.V. Satyam, Dean- Student Affairs.</a></b>
-                            <p>Panacea in collaboration with the Oracle would be releasing their Fourth Episode of Connect Interview Series.</p>
-                            <p>For this edition, the newly appointed Dean- Student Affairs , Professor P. V. Satyam, from School of Basic Sciences, would be gracing us with his presence. 
-                              Prof Satyam has encouraged students to put forth their queries, if any, that are to be answered by him during this interview.</p>
-
-                          
-                            <input type="text" name="Question" class="form-control" placeholder="Type your Question here...." value="" required=""/>
-                            <center><input type="submit" name="submit" class="button" value="SUBMIT" /></center>
-                           
-                          </form>
+                        <div class="Announcements">
+                          <div class="row justify-content-center">
+                           <br>
+                          <h4 class="title">Announcements</h4>
+                          <i class="fa fa-bullhorn fa-3x" aria-hidden="true"></i>
+                        
+                          </div>
+                          <br>
+                          <ul>
+                            <li>
+                          <p class="description">
+                            IIT Bhubaneswar holds Pulse Polio Drive for In-Campus Children as a Part of National Polio Immunisation Programme 
+                          </p>
+                           </li>
+                           <li>
+                            <p class="description">
+                             4th Years were asked to return to campus by Jan 28
+                            </p>
+                             </li>
+                             <li>
+                              <p class="description">
+                                Socities started to conduct workshops and induct Freshers amidst the pandemic
+                              </p>
+                               </li>
+                               <li>
+                                <p class="description">
+                                  IIT Bhubaneswar organizes 'FIT INDIA CYCLOTHON' as part of Fit India Mission
+                                </p>
+                                 </li>
+                                 <li>
+                                  <p class="description">
+                                    Fest heads have decided to conduct their fests in online mode
+                                  </p>
+                                   </li>
+                          </ul>
                         </div>
                        
               
@@ -695,7 +700,6 @@ padding-right: 20px;
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzm6UvdEakof_SreE1gehc8-Pgyvq_f-C7-8Nz32V6cNxWFVu7I5KQf1EwYw12iFHlCaw/exec'
   const form = document.forms['google-sheet']
-
   form.addEventListener('submit', e => {
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
