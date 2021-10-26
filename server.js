@@ -46,7 +46,7 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
   passport.use(new GoogleStrategy({
     clientID        : '986762757676-2pq35rlfhh2t1u17gcgliquuuq6vgfn9.apps.googleusercontent.com',
     clientSecret    : '3Os8QiwahxzJsJNk7VhrFB4F',
-    callbackURL     : 'http://www.oracleiitbbs.in/auth/google/callback',
+    callbackURL     : 'https://journalismbody-iitbbs.herokuapp.com/auth/google/callback',
     userProfileURL  : 'https://www.googleapis.com/oauth2/v3/userinfo'
     },
     function(token, refreshToken, profile, done) {
