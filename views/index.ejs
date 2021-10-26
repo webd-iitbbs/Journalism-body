@@ -7,7 +7,18 @@
 font-family: "Open Sans", sans-serif;
 color: #444;
 background-color: white;
+overflow: scroll;
 }
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: white;
+}
+::-webkit-scrollbar-thumb{
+    background: grey;
+}
+
 a {
 color: rgba(117, 117, 117, 1);
 text-decoration: none;
@@ -17,6 +28,10 @@ text-decoration: none;
 }
 h1, h2, h3, h4, h5, h6, .font-primary {
 font-family: "Roboto", sans-serif;
+}
+#main
+{
+  overflow: scroll;
 }
 /*--------------------------------------------------------------
 # Our Services
@@ -312,17 +327,23 @@ font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 padding-left: 20px;
 padding-right: 20px;
 }
-.form{widows: 100%;height:470px;background: white;border-radius:8px;box-shadow:0 0 20px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 20px ;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
-.form h2{margin:10px 0;padding-bottom:10px;width:150px;color:#78788c;font-size: 25px; border-bottom:3px solid #78788c}
-.form input{width:100%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid #bebed2}
-.form input:focus{border-bottom:2px solid #78788c}
+.in-quest{
+  padding-top: 10px;
+}
+.form b{color: black;}
+.form a{text-decoration: none; color: black;}
+.form p{margin-top: -10px; padding: 0;}
+.form input[type='text'] {font-family: Georgia, 'Times New Roman', Times, serif; color: black;font-size: small; }
+.form{width:400px;height:550px;background:white;border-radius:8px;box-shadow:0 0 20px -10px #000;margin-bottom: 20px;padding:10px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
+@media only screen and (max-width: 450px)
+{
+  .form{height:650px;}
+}
+.form input{width:100%; padding:18px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;}
 .form p:before{content:attr(type);display:block;margin:28px 0 0;font-size:14px;color:#5a5a5a}
-.form button{
-padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px solid #78788c;background:0;color:#5a5a6e;cursor:pointer; border-radius: 10px; transition:all .3s}
-.form button:hover{background:#78788c;color:#fff}
-.form div{content:'Hi';position:absolute;bottom:-15px;right:-20px;background:#50505a;color:#fff;width:320px;padding:16px 4px 16px 0;border-radius:6px;font-size:13px;box-shadow:10px 10px 40px -14px #000}
-.form span{margin:0 5px 0 15px}
-
+.form ::placeholder {font-family: Georgia, 'Times New Roman', Times, serif; color: black;font-size: small;}
+.form .button{box-sizing: border-box; width: 100px;font-family: 'Courier New', Courier, monospace;font-size: small;padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px solid #78788c;background:0;color:#5a5a6e;cursor:pointer;transition:all .3s}
+.form .button:hover{background:#78788c;color:#fff}
 </style> 
 
 
@@ -527,7 +548,7 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                   <div class="row mt-5 mr-1 pr-1">
                       <div class="col-lg-8 col-12 "">
                           <div class="row" id="articles">
-                              <% var j =0; var count ; for( j=article.length-7;j>article.length-11;j--){ count = 0;
+                              <% var j =0; var count ; for( j=article.length-7;j>article.length-12;j--){ count = 0;
                                
                                 {
                                     
@@ -579,80 +600,23 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
                           </div>
                       </div>
                       <div class="col-lg-4 col-12" >
-                        <div class="row  stick">
+                        <div class="in-quest">
 
+                          <form class="form" method="post" autocomplete="off" name="google-sheet">
+                            <b>Connect Episode 4</b>
+                            <br><b>In Conversation with <a href="https://www.iitbbs.ac.in/profile.php/pv-satyam/">Prof P.V. Satyam, Dean of Students' Affairs.</a></b>
+                            <p>Panacea in collaboration with the Oracle would be releasing their Fourth Episode of Connect Interview Series.</p>
+                            <p>For this edition, the newly appointed Dean Students' Affairs , Professor P. V. Satyam, from School of Basic Sciences, would be gracing us with his presence. 
+                              Prof Satyam has encouraged students to put forth their queries, if any, that are to be answered by him during this interview.</p>
 
-
-
-                          <div id="qp_all3393124">
-                            <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-                            <STYLE>#qp_main3393124 .qp_btna:hover input {background:#00355F!important} #qp_all3393124 {max-width:815px; margin:0 auto;}</STYLE>
-                            <div id="qp_main3393124" fp='4B1444e4-104' results=0 style="border-radius:0px;margin:0 auto 10px auto;padding:0.8em;background-color:#FFF;font-family: 'Open Sans', sans-serif, Arial;color:#000;border: 1px solid #DBD9D9;max-width:815px;box-sizing:border-box;text-align:left">
-                            <div style="font-size:1em;background-color:#00355F;color:#FFF;font-family:'Open Sans', sans-serif, Arial">
-                            <div style="padding:0.8em;line-height:1.3em">Are you willing to go back to campus</div>
-                          </div>
-                          <form id="qp_form3393124" action="//www.poll-maker.com/results3393124x4B1444e4-104" method="post" target="_blank" style="display:inline;margin:0px;padding:0px">
-                            <div style="padding:0px">
-                              <input type=hidden name="qp_d3393124" value="44229.6771296270-44229.6771175029">
-                              <div style="display:block;color:#6B6B6B;font-family: 'Open Sans', sans-serif, Arial;font-size:1em;line-height:1.5;padding:13px 8px 11px;margin:10px 0px;clear:both" class="qp_a" onClick="var c=this.getElementsByTagName('INPUT')[0]; if((!event.target?event.srcElement:event.target).tagName!='INPUT'){c.checked=(c.type=='radio'?true:!c.checked)};var i=this.parentNode.parentNode.parentNode.getElementsByTagName('INPUT');for(var k=0;k!=i.length;k=k+1){i[k].parentNode.parentNode.setAttribute('sel',i[k].checked?1:0)}">
-                                <span style="display:block;padding-left:30px;cursor:inherit">
-                                <input style="float:left;width:20px;margin-left:-25px;margin-top:2px;padding:0px;height:20px;-webkit-appearance:radio;" name="qp_v3393124" type="radio" value="1" />Yes</span>
-                              </div>
-                              <div style="display:block;color:#6B6B6B;font-family: 'Open Sans', sans-serif, Arial;font-size:1em;line-height:1.5;padding:13px 8px 11px;margin:10px 0px;clear:both" class="qp_a" onClick="var c=this.getElementsByTagName('INPUT')[0]; if((!event.target?event.srcElement:event.target).tagName!='INPUT'){c.checked=(c.type=='radio'?true:!c.checked)};var i=this.parentNode.parentNode.parentNode.getElementsByTagName('INPUT');for(var k=0;k!=i.length;k=k+1){i[k].parentNode.parentNode.setAttribute('sel',i[k].checked?1:0)}">
-                                <span style="display:block;padding-left:30px;cursor:inherit">
-                                <input style="float:left;width:20px;margin-left:-25px;margin-top:2px;padding:0px;height:20px;-webkit-appearance:radio;" name="qp_v3393124" type="radio" value="2" />No</span>
-                              </div>
-                              <div style="display:block;color:#6B6B6B;font-family: 'Open Sans', sans-serif, Arial;font-size:1em;line-height:1.5;padding:13px 8px 11px;margin:10px 0px;clear:both" class="qp_a" onClick="var c=this.getElementsByTagName('INPUT')[0]; if((!event.target?event.srcElement:event.target).tagName!='INPUT'){c.checked=(c.type=='radio'?true:!c.checked)};var i=this.parentNode.parentNode.parentNode.getElementsByTagName('INPUT');for(var k=0;k!=i.length;k=k+1){i[k].parentNode.parentNode.setAttribute('sel',i[k].checked?1:0)}">
-                                <span style="display:block;padding-left:30px;cursor:inherit">
-                                <input style="float:left;width:20px;margin-left:-25px;margin-top:2px;padding:0px;height:20px;-webkit-appearance:radio;" name="qp_v3393124" type="radio" value="3" />May be</span>
-                              </div>
-                            </div>
-                            <div style="padding-left:0px;clear:both;text-align:left;margin:1em auto">
-                              <a style="display:inline-block;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;padding-right:5px;text-decoration:none" class="qp_btna" href="#">
-                                <input name="qp_b3393124" style="min-width:7.8em;padding:0.5em;background-color:#0B79D3;font-family: 'Open Sans', sans-serif, Arial;font-size:16px;color:#FFF;cursor:pointer;cursor:hand;border:0px;-webkit-appearance:none;border-radius:0px" type="submit" btype="v" value="Vote" />
-                              </a>
-                              <a style="display:inline-block;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;padding-left:5px;text-decoration:none" class="qp_btna" href="#">
-                                <input name="qp_b3393124" style="min-width:7.8em;padding:0.5em;background-color:#0B79D3;font-family: 'Open Sans', sans-serif, Arial;font-size:16px;color:#FFF;cursor:pointer;cursor:hand;border:0px;-webkit-appearance:none;border-radius:0px" type="submit" btype="r" value="Results" />
-                              </a>
-                            </div>
+                          
+                            <input type="text" name="Question" class="form-control" placeholder="Type your Question here...." value="" required=""/>
+                            <center><input type="submit" name="submit" class="button" value="SUBMIT" /></center>
+                           
                           </form>
-                          <div style="display:none">
-                            <div id="qp_rp3393124" style="font-size:14px;width:5ex;text-align:right;overflow:hidden;position:absolute;right:5px;height:1.5em;line-height:1.5em"></div>
-                            <div id="qp_rv3393124" style="font-size:14px;line-height:1.5em;width:0%;text-align:right;color:#FFF;box-sizing:border-box;padding-right:3px"></div>
-                            <div id="qp_rb3393124" style="font-size:14px;line-height:1.5em;color:#FFFFFF;display:block;padding-right:10px 5px"></div>
-                            <div id="qp_rva3393124" style="background:#006FB9;border-color:#006FB9"></div>
-                            <div id="qp_rvb3393124" style="background:#163463;border-color:#163463"></div>
-                            <div id="qp_rvc3393124" style="background:#5BCFFC;border-color:#1481AB"></div>
-                          </div>
                         </div>
-                        <STYLE t=633>
-                          .cclass {display:inline-block!important;}
-                          .aclass {display:none!important;}
-                        </STYLE>
-                        <SCRIPT t=633>try{var notRandom = 'True';
-                        sys.init(0,function(){
-                            sys.themeFirstLoadCB.push(function() {
-                                var pfn = sys.dthemes.renderCB;
-                                sys.dthemes.renderCB = function(pfn){return function() {
-                                    pfn();
-                                    if(notRandom=='True') {
-                                        notRandom = '';
-                                        var parent = document.getElementById("poll-layouts");
-                                        for(var i = 0; i < parent.children.length; i++){
-                                            //parent.appendChild(parent.children[Math.random() * i | 0]);
-                                        }
-                                    }
-                                }}(pfn);
-                            });
-                        });
-                        }catch(e){console.log('error',e)}</SCRIPT>
-                        <STYLE t=653>div#headerflat {
-                            display: none;
-                        }</STYLE>
-                      </div>
-                      <script src="//scripts.poll-maker.com/3012/scpolls.js" language="javascript"></script>
-
-                        </div>
+                       
+              
                     
                    
                            
@@ -727,6 +691,21 @@ padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px s
 
 
 </main><!-- #main -->
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzm6UvdEakof_SreE1gehc8-Pgyvq_f-C7-8Nz32V6cNxWFVu7I5KQf1EwYw12iFHlCaw/exec'
+  const form = document.forms['google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => alert("Your response have been submitted!!"))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> 
 <script src="../assets/js/header.js"></script>
