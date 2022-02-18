@@ -368,19 +368,19 @@ padding-right: 20px;
                   <div class="row">
                     
                     <div class="col-md-6">
-                          <% var j =0; var count ; for( j=0;j<article.length;j++){ count = 0;
+                          <% var j =0; var count ; for( j=article.length-1;j>0;j++){ count = 0;
                           if(article[j].trending=="on") {
                           count++ %>
                               <article >
                                   
-                                      <a href="articles/<%=article[article.length-1].id%>" aria-hidden="true" tabindex="-1">
+                                      <a href="articles/<%=article[j].id%>" aria-hidden="true" tabindex="-1">
                                           <div class="post-entry-1">
-                                              <img src="assets/img/gallery/<%=article[article.length-1].photo%>.jpg" width="100%" height="auto">
+                                              <img src="assets/img/gallery/<%=article[j].photo%>.jpg" width="100%" height="auto">
                                             
                                             
-                                              <h2><%=article[article.length-1].name%></h2>
+                                              <h2><%=article[j].name%></h2>
                                               
-                                              <p><%= article[article.length-1].pure_text.split(" ").slice(0,30).join(" ")%>...</p>
+                                              <p><%= article[j].pure_text.split(" ").slice(0,30).join(" ")%>...</p>
                                               <% for(var k=0;k<author.length;k++){
                                                 console.log("HI");
                                                 console.log(article[j].author_id);
