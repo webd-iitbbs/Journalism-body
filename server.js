@@ -150,6 +150,17 @@ MongoClient.connect('mongodb+srv://ja123:ja123@cluster0.k3ytz.mongodb.net/ja-art
     })
     .catch(error => console.error(error))  
   }); 
+
+  app.get('/generalchampionship', (req,res)=>{
+    db.collection('article').find().toArray()
+    .then(results=>{
+      db.collection('author').find().toArray() 
+      .then(result2=>{
+        res.render('category',{article:results, cat:"General Championship", author:result2, query : "gc", user: req.user, isLogged: req.isAuthenticated()})
+      })
+    })
+    .catch(error => console.error(error))  
+  }); 
  
   app.get('/articles/:id', (req,res)=>{
    
