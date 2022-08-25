@@ -5929,10 +5929,10 @@ html {
   overflow: scroll;
   overflow-x: hidden;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
-}
+} */
 
 /* .header-info-left ul li{
   display:inline-block;
